@@ -33,7 +33,7 @@
             max-width: 900px;
             margin: 40px auto;
             background: #fff;
-            padding: 40px 32px 32px 32px;
+            padding: 40px 16px 32px 16px; /* zmniejsz padding na mobile */
             border-radius: 18px;
             box-shadow: 0 4px 24px rgba(60,60,120,0.10);
         }
@@ -198,11 +198,23 @@
             padding: 4px 10px;
         }
         @media (max-width: 900px) {
-            .main { padding: 18px 4vw; }
+            .main { padding: 18px 2vw; }
             .header { flex-direction: column; align-items: flex-start; gap: 18px; }
             .projects { grid-template-columns: 1fr; }
-            nav.navbar { gap: 12px; font-size: 0.98em; }
+            nav.navbar { gap: 8px; font-size: 0.98em; flex-wrap: wrap; }
             .footer { font-size: 0.95em; }
+            .section { margin: 24px 0 0 0; }
+            .section-title { font-size: 1.1em; }
+            .badges img, .tech-stack img { height: 28px; padding: 2px 4px; }
+            .project-card { padding: 12px 8px 10px 8px; }
+        }
+        @media (max-width: 600px) {
+            html, body { width: 100vw; overflow-x: hidden; }
+            .main { padding: 8px 0; border-radius: 0; box-shadow: none; }
+            .header { gap: 10px; }
+            .section { margin: 16px 0 0 0; }
+            .projects { gap: 8px; }
+            .project-card { font-size: 0.97em; }
         }
     </style>
 </head>
@@ -217,15 +229,15 @@
                     <a href="mailto:contact@victorymind.ai">E-mail</a>
                     <a href="https://www.linkedin.com/in/alansteinbarth" target="_blank">LinkedIn</a>
                     <a href="https://github.com/AlanSteinbarth" target="_blank">GitHub</a>
+                    <a href="index-en.html" style="margin-left:12px;font-weight:700;color:#2c3e50;background:#e0e7ff;padding:4px 14px;border-radius:6px;text-decoration:none;">English</a>
                 </div>
             </div>
         </div>
         <nav class="navbar">
             <a href="#about">O mnie</a>
-            <a href="#help">W czym pomogę?</a>
-            <a href="#tech">Technologie</a>
-            <a href="#projects">Projekty</a>
-            <a href="#faq">FAQ</a>
+            <a href="#help">W czym mogę pomóc?</a>
+            <a href="#tech-projects">Technologie & Projekty</a>
+            <a href="#faq">Fakty i mity</a>
             <a href="#contact">Kontakt</a>
         </nav>
         <div class="section" id="about">
@@ -249,55 +261,70 @@
                 <li>🔗 Integracje API, automatyzacja marketingu i workflow</li>
             </ul>
         </div>
-        <div class="section" id="tech">
-            <div class="section-title">Kluczowe technologie</div>
-            <div class="badges">
-                <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
-                <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
-                <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
-                <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
-                <img src="https://img.shields.io/badge/Flask-000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
-                <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit">
-                <img src="https://img.shields.io/badge/Docker-0db7ed?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-                <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
-            </div>
-        </div>
-        <div class="section" id="projects">
-            <div class="section-title">Wybrane projekty</div>
-            <div class="projects">
-                <div class="project-card">
-                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/Audio2Tekst" target="_blank">Audio2Tekst</a></div>
-                    <div class="project-desc">Konwerter audio na tekst (OpenAI Whisper, 90+ języków)</div>
+        <div class="section" id="tech-projects">
+            <div class="section-title">Technologie & Wybrane projekty</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;">
+                <div style="flex:1 1 220px; min-width:180px;">
+                    <b>Kluczowe technologie:</b>
+                    <ul style="margin-top:10px; margin-bottom:18px;">
+                        <li><b>Python</b> – główny język programowania, używany we wszystkich projektach</li>
+                        <li><b>TensorFlow, PyTorch</b> – modele AI, deep learning (np. Audio2Tekst, Sokrates)</li>
+                        <li><b>Pandas</b> – analiza i przetwarzanie danych (wszystkie projekty data science)</li>
+                        <li><b>Flask, Streamlit</b> – aplikacje webowe i interfejsy użytkownika (np. Notatki głosowe, Audio2Tekst)</li>
+                        <li><b>Docker</b> – konteneryzacja i wdrożenia (większość projektów produkcyjnych)</li>
+                        <li><b>Git</b> – kontrola wersji, współpraca</li>
+                    </ul>
+                    <div class="badges">
+                        <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
+                        <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
+                        <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+                        <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
+                        <img src="https://img.shields.io/badge/Flask-000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+                        <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit">
+                        <img src="https://img.shields.io/badge/Docker-0db7ed?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+                        <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
+                    </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/Konwerter-plikow-graficznych" target="_blank">Konwerter plików graficznych</a></div>
-                    <div class="project-desc">Batch processing, 15+ formatów, kompresja</div>
-                </div>
-                <div class="project-card">
-                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/Notatki-glosowe-i-ich-wyszukiwanie" target="_blank">Notatki głosowe i ich wyszukiwanie</a></div>
-                    <div class="project-desc">AI-powered notatki głosowe z wyszukiwaniem semantycznym</div>
-                </div>
-                <div class="project-card">
-                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/pdf-to-docx-converter" target="_blank">PDF to DOCX Converter</a></div>
-                    <div class="project-desc">Konwerter PDF→DOCX/TXT z OCR</div>
-                </div>
-                <div class="project-card">
-                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/Sokrates" target="_blank">Sokrates</a></div>
-                    <div class="project-desc">Inteligentny asystent edukacyjny z ChatGPT</div>
-                </div>
-                <div class="project-card">
-                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/Kalkulator-dla-biegaczy" target="_blank">Kalkulator dla biegaczy</a></div>
-                    <div class="project-desc">Kalkulator treningowy z predykcją wyników</div>
+                <div style="flex:2 1 340px; min-width:220px;">
+                    <b>Wybrane projekty:</b>
+                    <div class="projects" style="grid-template-columns:1fr; gap:12px;">
+                        <div class="project-card">
+                            <div class="project-title"><a href="https://github.com/AlanSteinbarth/Audio2Tekst" target="_blank">Audio2Tekst</a></div>
+                            <div class="project-desc">Konwerter audio na tekst (OpenAI Whisper, Python, Streamlit, Docker, 90+ języków)</div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title"><a href="https://github.com/AlanSteinbarth/Konwerter-plikow-graficznych" target="_blank">Konwerter plików graficznych</a></div>
+                            <div class="project-desc">Batch processing, 15+ formatów, kompresja (Python, Pillow, Docker)</div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title"><a href="https://github.com/AlanSteinbarth/Notatki-glosowe-i-ich-wyszukiwanie" target="_blank">Notatki głosowe i ich wyszukiwanie</a></div>
+                            <div class="project-desc">AI-powered notatki głosowe z wyszukiwaniem semantycznym (Python, Flask, AI, Docker)</div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title"><a href="https://github.com/AlanSteinbarth/pdf-to-docx-converter" target="_blank">PDF to DOCX Converter</a></div>
+                            <div class="project-desc">Konwerter PDF→DOCX/TXT z OCR (Python, Tesseract, Docker)</div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title"><a href="https://github.com/AlanSteinbarth/Sokrates" target="_blank">Sokrates</a></div>
+                            <div class="project-desc">Inteligentny asystent edukacyjny z ChatGPT (Python, OpenAI API, Streamlit)</div>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-title"><a href="https://github.com/AlanSteinbarth/Kalkulator-dla-biegaczy" target="_blank">Kalkulator dla biegaczy</a></div>
+                            <div class="project-desc">Kalkulator treningowy z predykcją wyników (Python, Pandas, Streamlit)</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="section" id="faq">
-            <div class="section-title">FAQ</div>
+            <div class="section-title">Fakty i mity</div>
             <ul>
-                <li><b>Czy mogę zamówić indywidualną konsultację?</b><br>Tak, napisz do mnie przez formularz lub na maila – ustalimy szczegóły.</li>
-                <li><b>Czy realizujesz projekty dla firm?</b><br>Tak, współpracuję zarówno z firmami, jak i osobami indywidualnymi.</li>
-                <li><b>Jak wygląda proces współpracy?</b><br>Najpierw rozmawiamy o Twoich potrzebach, potem przygotowuję propozycję i wycenę. Po akceptacji – realizacja i wsparcie.</li>
-                <li><b>Czy prowadzisz szkolenia z AI?</b><br>Tak, organizuję szkolenia i warsztaty z AI, ML, Python – zarówno online, jak i stacjonarnie.</li>
+                <li><b>Fakt:</b> Sztuczna inteligencja może automatyzować powtarzalne zadania i zwiększać efektywność firm.</li>
+                <li><b>Mit:</b> AI zastąpi wszystkich pracowników – w rzeczywistości wspiera ludzi i pozwala skupić się na kreatywnych zadaniach.</li>
+                <li><b>Fakt:</b> Dane są kluczowe dla skutecznych wdrożeń AI – im lepsze dane, tym lepsze wyniki modeli.</li>
+                <li><b>Mit:</b> Wdrożenie AI jest zawsze bardzo kosztowne – wiele rozwiązań można wdrożyć szybko i w przystępnej cenie.</li>
+                <li><b>Fakt:</b> AI może pomóc w analizie danych, automatyzacji marketingu i obsłudze klienta.</li>
+                <li><b>Mit:</b> Sztuczna inteligencja rozumie wszystko jak człowiek – AI działa na podstawie danych i algorytmów, nie posiada świadomości.</li>
             </ul>
         </div>
         <!-- Modal kontaktowy -->
@@ -305,13 +332,14 @@
           <div style="background:#fff;max-width:420px;width:90vw;padding:32px 24px 24px 24px;border-radius:16px;box-shadow:0 8px 32px rgba(44,62,80,0.18);position:relative;">
             <button id="closeModal" style="position:absolute;top:12px;right:12px;background:none;border:none;font-size:1.5em;color:#6366f1;cursor:pointer;">&times;</button>
             <h2 style="margin-top:0;color:#2c3e50;font-size:1.3em;">Skontaktuj się ze mną</h2>
-            <form action="https://formspree.io/f/xwkgyyqg" method="POST" style="max-width:400px;margin:0 auto;text-align:left;">
+            <form action="https://formspree.io/f/xwkgyyqg" method="POST" style="max-width:400px;margin:0 auto;text-align:left;" id="contactForm">
               <label for="name">Imię:</label><br>
               <input type="text" id="name" name="name" required style="width:100%;padding:8px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;">
               <label for="email">E-mail:</label><br>
               <input type="email" id="email" name="email" required style="width:100%;padding:8px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;">
               <label for="message">Wiadomość:</label><br>
               <textarea id="message" name="message" rows="4" required style="width:100%;padding:8px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;"></textarea>
+              <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" style="margin:12px 0;"></div>
               <div style="display:flex;justify-content:center;">
                 <button type="submit" style="background:#fff;color:#6366f1;padding:10px 24px;border:2px solid #6366f1;border-radius:6px;font-weight:700;cursor:pointer;transition:background 0.2s,color 0.2s;">Wyślij</button>
               </div>
@@ -322,6 +350,14 @@
         <div class="contact" id="contact">
             <b>Skontaktuj się ze mną</b><br>
             <button id="openContactModal" style="background:#6366f1;color:#fff;padding:10px 24px;border:none;border-radius:6px;font-weight:700;cursor:pointer;margin-top:18px;">Otwórz formularz kontaktowy</button>
+            <div style="margin-top:18px;font-size:1em;line-height:1.6;color:#2c3e50;">
+                <b>Dane firmy:</b><br>
+                VictoryMind.ai<br>
+                ul. Zwirowa 50D, 05-830 Rusiec<br>
+                NIP: 522-286-14-78<br>
+                REGON: 142914632<br>
+                e-mail: <a href="mailto:contact@victorymind.ai" style="color:#6366f1;text-decoration:underline;">contact@victorymind.ai</a>
+            </div>
         </div>
         <footer class="footer">
             <div>© 2025 Alan Steinbarth. Wszelkie prawa zastrzeżone.</div>
@@ -329,6 +365,19 @@
                 Strona korzysta z Google Analytics do anonimowych statystyk odwiedzin.<br>
                 <a href="polityka-prywatnosci.html" style="color:#6366f1;text-decoration:underline;">Polityka prywatności</a>
             </div>
+            <div style="margin-top:12px;font-size:1em;line-height:1.6;color:#2c3e50;">
+                <b>Dane firmy:</b><br>
+                VictoryMind.ai<br>
+                ul. Zwirowa 50D, 05-830 Rusiec<br>
+                NIP: 522-286-14-78<br>
+                REGON: 142914632<br>
+                e-mail: <a href="mailto:contact@victorymind.ai" style="color:#6366f1;text-decoration:underline;">contact@victorymind.ai</a>
+            </div>
+            <div style="margin-top:18px;">
+                <a href="https://www.linkedin.com/in/alansteinbarth" target="_blank" style="margin:0 10px;color:#6366f1;font-size:1.4em;vertical-align:middle;" aria-label="LinkedIn"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.37-1.54 2.82-1.54 3.01 0 3.57 1.98 3.57 4.56v5.62z"/></svg></a>
+                <a href="https://github.com/AlanSteinbarth" target="_blank" style="margin:0 10px;color:#6366f1;font-size:1.4em;vertical-align:middle;" aria-label="GitHub"><svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M12 0c-6.63 0-12 5.37-12 12 0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.332-5.466-5.93 0-1.31.468-2.38 1.236-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.984-.399 3.003-.404 1.018.005 2.046.138 3.006.404 2.289-1.552 3.295-1.23 3.295-1.23.653 1.653.242 2.873.118 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.804 5.624-5.475 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.218.694.825.576 4.765-1.587 8.2-6.086 8.2-11.385 0-6.63-5.373-12-12-12z"/></svg></a>
+            </div>
+            <button id="scrollToTop" style="display:none;position:fixed;bottom:32px;right:32px;z-index:999;background:#6366f1;color:#fff;border:none;border-radius:50%;width:48px;height:48px;box-shadow:0 2px 8px rgba(99,102,241,0.18);font-size:2em;cursor:pointer;transition:background 0.2s;" aria-label="Powrót na górę">↑</button>
         </footer>
     </div>
     <!-- Baner cookies -->
@@ -400,6 +449,15 @@
       if(window.scrollY > 30) nav.classList.add('sticky');
       else nav.classList.remove('sticky');
     });
+    // Scroll to top button
+    const scrollBtn = document.getElementById('scrollToTop');
+    window.addEventListener('scroll', function() {
+      if(window.scrollY > 200) scrollBtn.style.display = 'block';
+      else scrollBtn.style.display = 'none';
+    });
+    scrollBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     // Modal kontaktowy
     const modal = document.getElementById('contactModal');
     const openBtn = document.getElementById('openContactModal');
@@ -407,6 +465,80 @@
     openBtn.addEventListener('click', () => { modal.style.display = 'flex'; });
     closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
     window.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
+    // Modal kontaktowy: zamykanie ESC
+    window.addEventListener('keydown', function(e) {
+      if(e.key === 'Escape') {
+        const modal = document.getElementById('contactModal');
+        if(modal && modal.style.display !== 'none') modal.style.display = 'none';
+      }
+    });
     </script>
+    <!-- Dodanie Google reCAPTCHA do formularza kontaktowego -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- 9. Mikroformaty schema.org (SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Alan Steinbarth",
+  "jobTitle": "AI & Data Science Engineer",
+  "image": "https://alansteinbarth.github.io/Logo2.png",
+  "url": "https://victorymind.ai/",
+  "sameAs": [
+    "https://www.linkedin.com/in/alansteinbarth",
+    "https://github.com/AlanSteinbarth"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "VictoryMind.ai",
+    "url": "https://victorymind.ai/"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Zwirowa 50D",
+    "addressLocality": "Rusiec",
+    "postalCode": "05-830",
+    "addressCountry": "PL"
+  },
+  "email": "contact@victorymind.ai"
+}
+</script>
+<!-- 10. Favicony w różnych rozmiarach -->
+<link rel="icon" type="image/png" sizes="32x32" href="Logo2.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Logo2.png">
+<link rel="apple-touch-icon" sizes="180x180" href="Logo2.png">
+<!-- 11. robots.txt i sitemap.xml -->
+<!-- Pliki robots.txt i sitemap.xml należy dodać do katalogu głównego repozytorium. Przykładowa zawartość: -->
+<!-- robots.txt -->
+<!-- User-agent: * -->
+<!-- Allow: / -->
+<!-- Sitemap: https://victorymind.ai/sitemap.xml -->
+<!-- sitemap.xml (należy wygenerować i dodać osobno) -->
+<script>
+// 13. Walidacja formularza kontaktowego po stronie JS
+const contactForm = document.getElementById('contactForm');
+if(contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+    let valid = true;
+    let errorMsg = '';
+    if(!name.value.trim()) { valid = false; errorMsg += 'Podaj imię.\n'; }
+    if(!email.value.match(/^\S+@\S+\.\S+$/)) { valid = false; errorMsg += 'Podaj poprawny e-mail.\n'; }
+    if(!message.value.trim()) { valid = false; errorMsg += 'Wpisz wiadomość.\n'; }
+    // Sprawdzenie reCAPTCHA
+    if(typeof grecaptcha !== 'undefined' && grecaptcha.getResponse().length === 0) {
+      valid = false; errorMsg += 'Potwierdź, że nie jesteś robotem (reCAPTCHA).\n';
+    }
+    if(!valid) {
+      alert(errorMsg);
+      e.preventDefault();
+    }
+  });
+}
+// 14. ALT do wszystkich grafik (przykład: logo już posiada alt, sprawdź inne grafiki w kodzie)
+// 18. Testy Lighthouse: Uruchom w Chrome → Audyty (Lighthouse) → Wygeneruj raport. Popraw błędy wg sugestii.
+</script>
 </body>
 </html>
