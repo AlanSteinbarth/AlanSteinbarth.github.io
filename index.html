@@ -2,19 +2,411 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alan Steinbarth</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Alan Steinbarth – AI, Data Science, Python, automatyzacja, wdrożenia, konsultacje, Warszawa. Portfolio, projekty, kontakt.">
+    <meta name="keywords" content="AI, Data Science, Python, Machine Learning, Automatyzacja, Warszawa, Alan Steinbarth, konsultacje, wdrożenia, portfolio, projekty">
+    <meta name="author" content="Alan Steinbarth">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Alan Steinbarth – AI & Data Science">
+    <meta property="og:description" content="Portfolio, projekty, wdrożenia AI, Data Science, Python. Kontakt i współpraca.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://alansteinbarth.github.io/Logo2.png">
+    <meta property="og:url" content="https://alansteinbarth.github.io/">
+    <link rel="canonical" href="https://alansteinbarth.github.io/">
+    <link rel="icon" type="image/png" href="Logo2.png">
+    <meta name="theme-color" content="#6366f1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://*; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <title>Alan Steinbarth – AI & Data Science</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-        .container { max-width: 800px; margin: 40px auto; background: #fff; padding: 32px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        h1 { color: #2c3e50; }
-        p { color: #555; }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #e0e7ff 0%, #f4f4f4 100%);
+            min-height: 100vh;
+        }
+        .main {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 40px 32px 32px 32px;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(60,60,120,0.10);
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 4px solid #6366f1;
+            box-shadow: 0 2px 12px rgba(99,102,241,0.10);
+        }
+        .intro {
+            flex: 1;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.4em;
+            margin: 0 0 8px 0;
+        }
+        .subtitle {
+            color: #6366f1;
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .links a {
+            color: #6366f1;
+            text-decoration: none;
+            margin-right: 18px;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .links a:hover {
+            color: #2c3e50;
+        }
+        .section {
+            margin: 36px 0 0 0;
+        }
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 12px;
+            border-left: 4px solid #6366f1;
+            padding-left: 12px;
+        }
+        ul, .badges {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .badges img {
+            height: 32px;
+            background: #f4f4f4;
+            border-radius: 6px;
+            padding: 2px 8px;
+            box-shadow: 0 1px 4px rgba(60,60,120,0.07);
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+        .project-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(60,60,120,0.06);
+            padding: 18px 16px 14px 16px;
+            transition: box-shadow 0.2s;
+        }
+        .project-card:hover {
+            box-shadow: 0 4px 16px rgba(99,102,241,0.13);
+        }
+        .project-title {
+            font-weight: 700;
+            color: #6366f1;
+            margin-bottom: 4px;
+            font-size: 1.08em;
+        }
+        .project-desc {
+            color: #444;
+            font-size: 0.98em;
+        }
+        .contact {
+            margin-top: 36px;
+            background: #6366f1;
+            color: #fff;
+            border-radius: 10px;
+            padding: 24px 18px;
+            text-align: center;
+            font-size: 1.1em;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.10);
+        }
+        nav.navbar {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.07);
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding: 12px 0 8px 0;
+            z-index: 100;
+            border-radius: 0 0 12px 12px;
+            margin-bottom: 18px;
+            transition: box-shadow 0.2s;
+        }
+        nav.navbar.sticky {
+            box-shadow: 0 4px 16px rgba(99,102,241,0.13);
+        }
+        nav.navbar a {
+            color: #6366f1;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.08em;
+            padding: 4px 12px;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+        nav.navbar a:hover {
+            background: #e0e7ff;
+            color: #2c3e50;
+        }
+        .fade-in {
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) !important;
+            transition: opacity 0.7s, transform 0.7s;
+        }
+        .section, .projects .project-card {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: opacity 0.7s, transform 0.7s;
+        }
+        .footer {
+            margin-top: 48px;
+            padding: 18px 0 8px 0;
+            text-align: center;
+            color: #888;
+            font-size: 1.05em;
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .tech-stack img {
+            height: 38px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(60,60,120,0.07);
+            padding: 4px 10px;
+        }
+        @media (max-width: 900px) {
+            .main { padding: 18px 4vw; }
+            .header { flex-direction: column; align-items: flex-start; gap: 18px; }
+            .projects { grid-template-columns: 1fr; }
+            nav.navbar { gap: 12px; font-size: 0.98em; }
+            .footer { font-size: 0.95em; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Cześć! Tu Alan Steinbarth</h1>
-        <p>To jest moja strona startowa hostowana na GitHub Pages.</p>
+    <div class="main">
+        <div class="header">
+            <img src="Logo2.png" alt="Victory Mind AI Logo" class="avatar" style="background:#fff;box-shadow:0 2px 12px rgba(99,102,241,0.10);border:4px solid #eab308;">
+            <div class="intro">
+                <h1>Alan Steinbarth</h1>
+                <div class="subtitle">AI & Data Science Engineer | Python | Automatyzacja | Warszawa</div>
+                <div class="links">
+                    <a href="mailto:contact@victorymind.ai">E-mail</a>
+                    <a href="https://www.linkedin.com/in/alansteinbarth" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/AlanSteinbarth" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar">
+            <a href="#about">O mnie</a>
+            <a href="#help">W czym pomogę?</a>
+            <a href="#tech">Technologie</a>
+            <a href="#projects">Projekty</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+        <div class="section" id="about">
+            <div class="section-title">O mnie</div>
+            <ul>
+                <li>🎓 Inżynier Sztucznej Inteligencji & Data Scientist</li>
+                <li>💼 Założyciel VictoryMind.ai – firma zarządzana przez AI</li>
+                <li>🛠️ Tworzę enterprise-grade aplikacje open-source</li>
+                <li>⚡ Ekspert w automatyzacji procesów biznesowych i marketingu z AI</li>
+                <li>📍 Warszawa, Polska</li>
+            </ul>
+        </div>
+        <div class="section" id="help">
+            <div class="section-title">W czym mogę pomóc?</div>
+            <ul>
+                <li>🤖 Wdrażanie rozwiązań AI i automatyzacji procesów biznesowych</li>
+                <li>📊 Analiza danych, raportowanie, wizualizacje</li>
+                <li>🧠 Konsultacje z zakresu machine learning i data science</li>
+                <li>🚀 Tworzenie dedykowanych narzędzi i aplikacji (Python, web, automatyzacje)</li>
+                <li>🎓 Szkolenia i warsztaty z AI, ML, Python</li>
+                <li>🔗 Integracje API, automatyzacja marketingu i workflow</li>
+            </ul>
+        </div>
+        <div class="section" id="tech">
+            <div class="section-title">Kluczowe technologie</div>
+            <div class="badges">
+                <img src="https://img.shields.io/badge/Python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54" alt="Python">
+                <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
+                <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
+                <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
+                <img src="https://img.shields.io/badge/Flask-000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+                <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit">
+                <img src="https://img.shields.io/badge/Docker-0db7ed?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+                <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
+            </div>
+        </div>
+        <div class="section" id="projects">
+            <div class="section-title">Wybrane projekty</div>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/Audio2Tekst" target="_blank">Audio2Tekst</a></div>
+                    <div class="project-desc">Konwerter audio na tekst (OpenAI Whisper, 90+ języków)</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/Konwerter-plikow-graficznych" target="_blank">Konwerter plików graficznych</a></div>
+                    <div class="project-desc">Batch processing, 15+ formatów, kompresja</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/Notatki-glosowe-i-ich-wyszukiwanie" target="_blank">Notatki głosowe i ich wyszukiwanie</a></div>
+                    <div class="project-desc">AI-powered notatki głosowe z wyszukiwaniem semantycznym</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/pdf-to-docx-converter" target="_blank">PDF to DOCX Converter</a></div>
+                    <div class="project-desc">Konwerter PDF→DOCX/TXT z OCR</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/Sokrates" target="_blank">Sokrates</a></div>
+                    <div class="project-desc">Inteligentny asystent edukacyjny z ChatGPT</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title"><a href="https://github.com/AlanSteinbarth/Kalkulator-dla-biegaczy" target="_blank">Kalkulator dla biegaczy</a></div>
+                    <div class="project-desc">Kalkulator treningowy z predykcją wyników</div>
+                </div>
+            </div>
+        </div>
+        <div class="section" id="faq">
+            <div class="section-title">FAQ</div>
+            <ul>
+                <li><b>Czy mogę zamówić indywidualną konsultację?</b><br>Tak, napisz do mnie przez formularz lub na maila – ustalimy szczegóły.</li>
+                <li><b>Czy realizujesz projekty dla firm?</b><br>Tak, współpracuję zarówno z firmami, jak i osobami indywidualnymi.</li>
+                <li><b>Jak wygląda proces współpracy?</b><br>Najpierw rozmawiamy o Twoich potrzebach, potem przygotowuję propozycję i wycenę. Po akceptacji – realizacja i wsparcie.</li>
+                <li><b>Czy prowadzisz szkolenia z AI?</b><br>Tak, organizuję szkolenia i warsztaty z AI, ML, Python – zarówno online, jak i stacjonarnie.</li>
+            </ul>
+        </div>
+        <!-- Modal kontaktowy -->
+        <div id="contactModal" class="modal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(44,62,80,0.18);backdrop-filter:blur(2px);justify-content:center;align-items:center;">
+          <div style="background:#fff;max-width:420px;width:90vw;padding:32px 24px 24px 24px;border-radius:16px;box-shadow:0 8px 32px rgba(44,62,80,0.18);position:relative;">
+            <button id="closeModal" style="position:absolute;top:12px;right:12px;background:none;border:none;font-size:1.5em;color:#6366f1;cursor:pointer;">&times;</button>
+            <h2 style="margin-top:0;color:#2c3e50;font-size:1.3em;">Skontaktuj się ze mną</h2>
+            <form action="https://formspree.io/f/xwkgyyqg" method="POST" style="max-width:400px;margin:0 auto;text-align:left;">
+              <label for="name">Imię:</label><br>
+              <input type="text" id="name" name="name" required style="width:100%;padding:8px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;">
+              <label for="email">E-mail:</label><br>
+              <input type="email" id="email" name="email" required style="width:100%;padding:8px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;">
+              <label for="message">Wiadomość:</label><br>
+              <textarea id="message" name="message" rows="4" required style="width:100%;padding:8px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc;"></textarea>
+              <div style="display:flex;justify-content:center;">
+                <button type="submit" style="background:#fff;color:#6366f1;padding:10px 24px;border:2px solid #6366f1;border-radius:6px;font-weight:700;cursor:pointer;transition:background 0.2s,color 0.2s;">Wyślij</button>
+              </div>
+            </form>
+            <div style="margin-top:12px;font-size:0.98em;opacity:0.8;text-align:center;">Możesz też napisać bezpośrednio: <a href="mailto:contact@victorymind.ai" style="color:#6366f1;text-decoration:underline;">contact@victorymind.ai</a></div>
+          </div>
+        </div>
+        <div class="contact" id="contact">
+            <b>Skontaktuj się ze mną</b><br>
+            <button id="openContactModal" style="background:#6366f1;color:#fff;padding:10px 24px;border:none;border-radius:6px;font-weight:700;cursor:pointer;margin-top:18px;">Otwórz formularz kontaktowy</button>
+        </div>
+        <footer class="footer">
+            <div>© 2025 Alan Steinbarth. Wszelkie prawa zastrzeżone.</div>
+            <div style="font-size:0.95em;opacity:0.7;">
+                Strona korzysta z Google Analytics do anonimowych statystyk odwiedzin.<br>
+                <a href="polityka-prywatnosci.html" style="color:#6366f1;text-decoration:underline;">Polityka prywatności</a>
+            </div>
+        </footer>
     </div>
+    <!-- Baner cookies -->
+    <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;width:100vw;z-index:99999;background:#fffbe7;border-top:2px solid #6366f1;box-shadow:0 -2px 12px rgba(99,102,241,0.10);padding:18px 12px 12px 12px;text-align:center;font-size:1.08em;">
+      <span style="color:#2c3e50;">Ta strona korzysta z Google Analytics (anonimowe statystyki). Możesz zaakceptować lub odrzucić ciasteczka analityczne.</span><br>
+      <button id="cookieAccept" style="background:#6366f1;color:#fff;padding:8px 22px;border:none;border-radius:6px;font-weight:700;cursor:pointer;margin:12px 8px 0 0;">Akceptuję</button>
+      <button id="cookieDecline" style="background:#fff;color:#6366f1;padding:8px 22px;border:2px solid #6366f1;border-radius:6px;font-weight:700;cursor:pointer;margin:12px 0 0 0;">Odrzucam</button>
+      <div style="font-size:0.97em;margin-top:6px;opacity:0.7;">Więcej informacji: <a href="polityka-prywatnosci.html" style="color:#6366f1;text-decoration:underline;">Polityka prywatności</a></div>
+    </div>
+    <!-- Google Analytics (anonimowe statystyki) -->
+    <script>
+    // Cookie consent logic
+    function loadAnalytics() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX';
+      document.head.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    }
+    function showCookieBanner() {
+      document.getElementById('cookieBanner').style.display = 'block';
+    }
+    function hideCookieBanner() {
+      document.getElementById('cookieBanner').style.display = 'none';
+    }
+    (function() {
+      function ready(fn) {
+        if (document.readyState !== 'loading') fn();
+        else document.addEventListener('DOMContentLoaded', fn);
+      }
+      ready(function() {
+        var consent = localStorage.getItem('cookieConsent');
+        if(consent === 'accepted') {
+          loadAnalytics();
+        } else if(consent === 'declined') {
+          // nie ładuj Analytics
+        } else {
+          showCookieBanner();
+        }
+        document.getElementById('cookieAccept').onclick = function() {
+          localStorage.setItem('cookieConsent', 'accepted');
+          hideCookieBanner();
+          loadAnalytics();
+        };
+        document.getElementById('cookieDecline').onclick = function() {
+          localStorage.setItem('cookieConsent', 'declined');
+          hideCookieBanner();
+        };
+      });
+    })();
+    </script>
+    <script>
+    // Animacje fade-in sekcji
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.section, .projects .project-card').forEach(el => observer.observe(el));
+    // Sticky navbar
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('.navbar');
+      if(window.scrollY > 30) nav.classList.add('sticky');
+      else nav.classList.remove('sticky');
+    });
+    // Modal kontaktowy
+    const modal = document.getElementById('contactModal');
+    const openBtn = document.getElementById('openContactModal');
+    const closeBtn = document.getElementById('closeModal');
+    openBtn.addEventListener('click', () => { modal.style.display = 'flex'; });
+    closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+    window.addEventListener('click', (e) => { if(e.target === modal) modal.style.display = 'none'; });
+    </script>
 </body>
 </html>
