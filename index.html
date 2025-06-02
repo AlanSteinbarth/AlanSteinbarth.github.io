@@ -230,11 +230,9 @@
             overflow: hidden;
         }
         
-        /* Ikony usług - prawdziwe grafiki */
-        .service-icon img {
-            width: 50px;
-            height: 50px;
-            filter: brightness(0) invert(1); /* Białe ikony */
+        /* Ikony usług - emotikony */
+        .service-emoji {
+            font-size: 2.5rem;
             z-index: 2;
             position: relative;
         }
@@ -574,7 +572,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="icon-automation.png" alt="Ikona automatyzacji" loading="lazy">
+                        <span class="service-emoji">🤖</span>
                     </div>
                     <h3>Automatyzacja Procesów</h3>
                     <p>Wdrażamy rozwiązania AI, które automatyzują powtarzalne zadania, oszczędzając czas i zwiększając efektywność zespołu.</p>
@@ -582,7 +580,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="icon-data.png" alt="Ikona analizy danych" loading="lazy">
+                        <span class="service-emoji">📊</span>
                     </div>
                     <h3>Analiza Danych</h3>
                     <p>Przekształcamy Twoje dane w wartościowe insights. Raportowanie, predykcje i wizualizacje, które wspierają decyzje biznesowe.</p>
@@ -590,7 +588,7 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="icon-solutions.png" alt="Ikona dedykowanych rozwiązań" loading="lazy">
+                        <span class="service-emoji">🚀</span>
                     </div>
                     <h3>Dedykowane Rozwiązania</h3>
                     <p>Tworzymy aplikacje AI dopasowane do specyfiki Twojej firmy. Od chatbotów po systemy rekomendacyjne.</p>
