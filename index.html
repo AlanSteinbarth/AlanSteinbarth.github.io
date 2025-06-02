@@ -47,7 +47,7 @@
             height: 100vh;
             background: 
                 linear-gradient(135deg, rgba(102,126,234,0.85), rgba(118,75,162,0.85)), 
-                url('hero-ai-image.jpg'),
+                url('Tlo_wersja_2.png'),
                 radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1), transparent 50%),
                 radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05), transparent 50%);
             background-size: cover, cover, cover, cover;
@@ -319,6 +319,7 @@
         
         .project-card-content {
             padding: 1.5rem;
+            text-align: center;
         }
         
         .project-title {
@@ -326,13 +327,14 @@
             font-weight: 700;
             color: #667eea;
             margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            position: relative;
         }
         
         .project-title::after {
             content: '↗';
+            position: absolute;
+            top: 0;
+            right: 0;
             font-size: 1rem;
             opacity: 0.6;
             transition: opacity 0.3s ease;
@@ -434,23 +436,62 @@
         
         .modal-content {
             background: white;
-            max-width: 500px;
+            max-width: 600px;
             width: 90vw;
+            max-height: 80vh;
             padding: 2rem;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             position: relative;
+            overflow-y: auto;
         }
         
-        .modal input:focus, .modal textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        /* Szczegółowe style dla treści modali usług */
+        .modal-content h4 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
         }
         
-        .modal button[type="submit"]:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102,126,234,0.4);
+        .modal-content h5 {
+            color: #667eea;
+            font-size: 1.1rem;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+        }
+        
+        .modal-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modal-content ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .modal-content ul li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8rem;
+        }
+        
+        .modal-content strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .modal-content p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #4a5568;
         }
         
         /* Scroll to top button */
@@ -683,7 +724,7 @@
 
     <!-- Przełącznik języka w prawym górnym rogu -->
     <div style="position:fixed;top:24px;right:32px;z-index:10001;">
-      <a href="index-en.html" style="background:rgba(99,102,241,0.12);color:#6366f1;padding:8px 20px;border-radius:25px;font-weight:600;text-decoration:none;box-shadow:0 2px 8px rgba(99,102,241,0.08);backdrop-filter:blur(8px);transition:background 0.3s;">English</a>
+      <a href="index-en.html" style="background:rgba(255,255,255,0.9);color:#2c3e50;padding:8px 20px;border-radius:25px;font-weight:600;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.15);backdrop-filter:blur(8px);transition:all 0.3s;">English</a>
     </div>
 
     <!-- Scripts -->
