@@ -262,6 +262,23 @@
             line-height: 1.6;
         }
         
+        .service-more-btn {
+            margin-top: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .service-more-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #5a6abf, #6f4b9a);
+        }
+        
         /* Projekty - uproszczone */
         .projects-grid {
             display: grid;
@@ -490,29 +507,29 @@
         <section class="section">
             <h2 class="section-title">Jak AI może zmienić Twój biznes?</h2>
             <div class="services-grid">
-                
                 <div class="service-card">
                     <div class="service-icon">
                         <img src="icon-automation.png" alt="Ikona automatyzacji" loading="lazy">
                     </div>
                     <h3>Automatyzacja Procesów</h3>
                     <p>Wdrażamy rozwiązania AI, które automatyzują powtarzalne zadania, oszczędzając czas i zwiększając efektywność zespołu.</p>
+                    <button class="service-more-btn" onclick="openServiceModal('automation')">Dowiedz się więcej</button>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">
                         <img src="icon-data.png" alt="Ikona analizy danych" loading="lazy">
                     </div>
                     <h3>Analiza Danych</h3>
                     <p>Przekształcamy Twoje dane w wartościowe insights. Raportowanie, predykcje i wizualizacje, które wspierają decyzje biznesowe.</p>
+                    <button class="service-more-btn" onclick="openServiceModal('data')">Dowiedz się więcej</button>
                 </div>
-                
                 <div class="service-card">
                     <div class="service-icon">
                         <img src="icon-solutions.png" alt="Ikona dedykowanych rozwiązań" loading="lazy">
                     </div>
                     <h3>Dedykowane Rozwiązania</h3>
                     <p>Tworzymy aplikacje AI dopasowane do specyfiki Twojej firmy. Od chatbotów po systemy rekomendacyjne.</p>
+                    <button class="service-more-btn" onclick="openServiceModal('solutions')">Dowiedz się więcej</button>
                 </div>
             </div>
         </section>
@@ -531,13 +548,13 @@
                         <p class="project-tech">Automatyczna transkrypcja w 90+ językach</p>
                     </div>
                 </a>
-                <a href="https://github.com/AlanSteinbarth/Sokrates-AI" target="_blank" class="project-card">
+                <a href="https://github.com/AlanSteinbarth/Sokrates" target="_blank" class="project-card">
                     <div class="project-card-content">
                         <h3 class="project-title">Sokrates AI</h3>
                         <p class="project-tech">Inteligentny asystent edukacyjny</p>
                     </div>
                 </a>
-                <a href="https://github.com/AlanSteinbarth/Notatki-Glosowe" target="_blank" class="project-card">
+                <a href="https://github.com/AlanSteinbarth/Notatki-glosowe-i-ich-wyszukiwanie" target="_blank" class="project-card">
                     <div class="project-card-content">
                         <h3 class="project-title">Notatki Głosowe</h3>
                         <p class="project-tech">AI-powered wyszukiwanie semantyczne</p>
@@ -579,7 +596,7 @@
         
         <div>© 2025 VictoryMind.ai</div>
         <div style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem;">
-            <a href="polityka-prywatnosci.html" style="color: white; text-decoration: underline;">Polityka prywatności</a>
+            <a href="polityka-prywatnosci.html" style="color: white; text-decoration: underline;" target="_blank" rel="noopener">Polityka prywatności</a>
         </div>
     </footer>
 
@@ -609,7 +626,7 @@
                     <label for="message" style="display:block;margin-bottom:0.5rem;color:#2c3e50;font-weight:600;">Opisz krótko swój projekt:</label>
                     <textarea id="message" name="message" rows="4" required style="width:100%;padding:0.8rem;border:2px solid #e0e7ff;border-radius:10px;font-size:1rem;resize:vertical;transition:border-color 0.3s;"></textarea>
                 </div>
-                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" style="margin-bottom:1.5rem;"></div>
+                <div class="g-recaptcha" data-sitekey="6LcwlVMrAAAAAJf2xB_RvNcWRY1BRDbl5UIxiaSB" style="margin-bottom:1.5rem;"></div>
                 <div style="text-align:center;">
                     <button type="submit" style="background:linear-gradient(135deg, #667eea, #764ba2);color:#fff;padding:1rem 2rem;border:none;border-radius:50px;font-weight:600;font-size:1rem;cursor:pointer;transition:transform 0.3s ease,box-shadow 0.3s ease;box-shadow:0 5px 20px rgba(102,126,234,0.3);">
                         Wyślij zapytanie
@@ -617,9 +634,17 @@
                 </div>
             </form>
             <div style="margin-top:1.5rem;text-align:center;font-size:0.9rem;color:#666;">
-                Odpowiedź w ciągu 24h • Konsultacja całkowicie bezpłatna
+                Odpowiemy w ciągu 24h • Konsultacja całkowicie bezpłatna
             </div>
         </div>
+    </div>
+
+    <!-- Modale usług -->
+    <div id="serviceModal" class="modal" style="display:none;z-index:10001;">
+      <div class="modal-content" style="max-width:500px;margin:5% auto;padding:2rem;position:relative;">
+        <button id="closeServiceModal" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;color:#667eea;cursor:pointer;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;">&times;</button>
+        <div id="serviceModalContent"></div>
+      </div>
     </div>
 
     <!-- Baner cookies -->
@@ -640,5 +665,44 @@
     <!-- Scripts -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="main.js"></script>
+    <script>
+      // Modal usług
+const serviceModal = document.getElementById('serviceModal');
+const serviceModalContent = document.getElementById('serviceModalContent');
+const closeServiceModalBtn = document.getElementById('closeServiceModal');
+
+const serviceDetails = {
+  automation: {
+    title: 'Automatyzacja Procesów',
+    content: `<p>Automatyzujemy powtarzalne procesy biznesowe, integrujemy systemy i eliminujemy ręczne zadania. Przykłady: automatyczne raportowanie, obsługa dokumentów, integracje API, workflow bez udziału człowieka.</p>`
+  },
+  data: {
+    title: 'Analiza Danych',
+    content: `<p>Wydobywamy wartość z Twoich danych: analizy predykcyjne, wizualizacje, dashboardy, raporty BI, segmentacja klientów, wykrywanie anomalii, wsparcie decyzji zarządczych.</p>`
+  },
+  solutions: {
+    title: 'Dedykowane Rozwiązania',
+    content: `<p>Tworzymy aplikacje AI szyte na miarę: chatboty, systemy rekomendacyjne, rozpoznawanie obrazów, NLP, automatyzacja obsługi klienta, personalizacja usług.</p>`
+  }
+};
+
+function openServiceModal(type) {
+  if (serviceDetails[type]) {
+    serviceModalContent.innerHTML = `<h2 style='margin-top:0;color:#2c3e50;font-size:1.3rem;text-align:center;'>${serviceDetails[type].title}</h2>${serviceDetails[type].content}`;
+    serviceModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+}
+closeServiceModalBtn.onclick = function() {
+  serviceModal.style.display = 'none';
+  document.body.style.overflow = '';
+};
+window.onclick = function(event) {
+  if (event.target === serviceModal) {
+    serviceModal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+};
+    </script>
 </body>
 </html>
