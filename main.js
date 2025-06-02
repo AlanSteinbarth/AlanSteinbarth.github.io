@@ -158,7 +158,7 @@ function hideCookieBanner() {
       });
     }
     
-    // Obsługa modali usług ("Dowiedz się więcej")
+    // Obsługa modali usług (Dowiedz się więcej) – delegacja eventów zgodna z CSP
     const serviceModal = document.getElementById('serviceModal');
     const serviceModalContent = document.getElementById('serviceModalContent');
     const closeServiceModalBtn = document.getElementById('closeServiceModal');
@@ -178,13 +178,18 @@ function hideCookieBanner() {
       }
     };
 
-    window.openServiceModal = function(type) {
-      if (serviceDetails[type]) {
-        serviceModalContent.innerHTML = `<h2 style='margin-top:0;color:#2c3e50;font-size:1.3rem;text-align:center;'>${serviceDetails[type].title}</h2>${serviceDetails[type].content}`;
-        serviceModal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-      }
-    };
+    // Delegacja eventów na przyciski usług
+    const servicesGrid = document.querySelector('.services-grid');
+    if (servicesGrid) {
+      servicesGrid.addEventListener('click', function(e) {
+        const btn = e.target.closest('.service-more-btn');
+        if (btn && btn.dataset.service && serviceDetails[btn.dataset.service]) {
+          serviceModalContent.innerHTML = `<h2 style='margin-top:0;color:#2c3e50;font-size:1.3rem;text-align:center;'>${serviceDetails[btn.dataset.service].title}</h2>${serviceDetails[btn.dataset.service].content}`;
+          serviceModal.style.display = 'block';
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    }
     if (closeServiceModalBtn && serviceModal) {
       closeServiceModalBtn.onclick = function() {
         serviceModal.style.display = 'none';
