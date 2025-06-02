@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VictoryMind.ai - Podgląd z grafikami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #2c3e50;
+        }
+        
+        /* Hero Section z placeholder grafiką */
+        .hero {
+            height: 100vh;
+            background: 
+                linear-gradient(135deg, rgba(102,126,234,0.85), rgba(118,75,162,0.85)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><radialGradient id="g1" cx="20%" cy="30%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient><radialGradient id="g2" cx="80%" cy="70%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.05"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><rect width="1200" height="600" fill="%23667eea"/><circle cx="240" cy="180" r="80" fill="url(%23g1)"/><circle cx="960" cy="420" r="120" fill="url(%23g2)"/><path d="M100,300 Q300,100 500,300 Q700,500 900,300 Q1100,100 1200,300" stroke="%23ffffff" stroke-width="2" fill="none" opacity="0.1"/><circle cx="200" cy="250" r="3" fill="%23ffffff" opacity="0.3"/><circle cx="400" cy="350" r="2" fill="%23ffffff" opacity="0.2"/><circle cx="600" cy="200" r="4" fill="%23ffffff" opacity="0.4"/><circle cx="800" cy="400" r="2" fill="%23ffffff" opacity="0.3"/><circle cx="1000" cy="180" r="3" fill="%23ffffff" opacity="0.2"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 2rem;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+        }
+        
+        .section {
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .section:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(102,126,234,0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102,126,234,0.15);
+        }
+        
+        /* Placeholder ikony - będą zastąpione grafikami z ChatGPT */
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: 
+                linear-gradient(135deg, #667eea, #764ba2),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><circle cx="40" cy="40" r="30" fill="none" stroke="%23ffffff" stroke-width="2" opacity="0.3"/><circle cx="40" cy="40" r="20" fill="none" stroke="%23ffffff" stroke-width="1.5" opacity="0.5"/><circle cx="40" cy="40" r="10" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.7"/><circle cx="40" cy="40" r="3" fill="%23ffffff"/></svg>');
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            box-shadow: 0 8px 25px rgba(102,126,234,0.3);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .placeholder-note {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.95);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            max-width: 300px;
+            z-index: 1000;
+            border: 2px solid #667eea;
+        }
+        
+        .placeholder-note h4 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .placeholder-note p {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .placeholder-note {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Notatka o placeholder'ach -->
+    <div class="placeholder-note">
+        <h4>🎨 Podgląd z grafikami</h4>
+        <p>Tło Hero i ikony to placeholder'y pokazujące, jak będą wyglądać grafiki z ChatGPT</p>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>VictoryMind.ai</h1>
+            <p class="subtitle">Automatyzacja biznesu z wykorzystaniem sztucznej inteligencji</p>
+            <a href="#services" class="cta-button">Rozpocznij transformację</a>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <section class="section" id="services">
+            <h2 class="section-title">Jak AI może zmienić Twój biznes?</h2>
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Automatyzacja Procesów</h3>
+                    <p>Wdrażamy rozwiązania AI, które automatyzują powtarzalne zadania, oszczędzając czas i zwiększając efektywność zespołu.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Analiza Danych</h3>
+                    <p>Przekształcamy Twoje dane w wartościowe insights. Raportowanie, predykcje i wizualizacje, które wspierają decyzje biznesowe.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Dedykowane Rozwiązania</h3>
+                    <p>Tworzymy aplikacje AI dopasowane do specyfiki Twojej firmy. Od chatbotów po systemy rekomendacyjne.</p>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+</body>
+</html>

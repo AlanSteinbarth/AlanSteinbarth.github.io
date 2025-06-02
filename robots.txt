@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://victorymind.ai/sitemap.xml
