@@ -150,11 +150,7 @@ function hideCookieBanner() {
           errorMsg += 'Opisz swój projekt.\n'; 
         }
         
-        // Sprawdzenie reCAPTCHA
-        if(typeof grecaptcha !== 'undefined' && grecaptcha.getResponse().length === 0) {
-          valid = false; 
-          errorMsg += 'Potwierdź, że nie jesteś robotem (reCAPTCHA).\n';
-        }
+        // Sprawdzenie reCAPTCHA nie jest potrzebne - usunięte
         
         if(!valid) {
           alert(errorMsg);
