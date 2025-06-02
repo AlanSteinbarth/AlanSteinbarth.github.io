@@ -158,5 +158,45 @@ function hideCookieBanner() {
       });
     }
     
+    // Obsługa modali usług ("Dowiedz się więcej")
+    const serviceModal = document.getElementById('serviceModal');
+    const serviceModalContent = document.getElementById('serviceModalContent');
+    const closeServiceModalBtn = document.getElementById('closeServiceModal');
+
+    const serviceDetails = {
+      automation: {
+        title: 'Automatyzacja Procesów',
+        content: `<p>Automatyzujemy powtarzalne procesy biznesowe, integrujemy systemy i eliminujemy ręczne zadania. Przykłady: automatyczne raportowanie, obsługa dokumentów, integracje API, workflow bez udziału człowieka.</p>`
+      },
+      data: {
+        title: 'Analiza Danych',
+        content: `<p>Wydobywamy wartość z Twoich danych: analizy predykcyjne, wizualizacje, dashboardy, raporty BI, segmentacja klientów, wykrywanie anomalii, wsparcie decyzji zarządczych.</p>`
+      },
+      solutions: {
+        title: 'Dedykowane Rozwiązania',
+        content: `<p>Tworzymy aplikacje AI szyte na miarę: chatboty, systemy rekomendacyjne, rozpoznawanie obrazów, NLP, automatyzacja obsługi klienta, personalizacja usług.</p>`
+      }
+    };
+
+    window.openServiceModal = function(type) {
+      if (serviceDetails[type]) {
+        serviceModalContent.innerHTML = `<h2 style='margin-top:0;color:#2c3e50;font-size:1.3rem;text-align:center;'>${serviceDetails[type].title}</h2>${serviceDetails[type].content}`;
+        serviceModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    };
+    if (closeServiceModalBtn && serviceModal) {
+      closeServiceModalBtn.onclick = function() {
+        serviceModal.style.display = 'none';
+        document.body.style.overflow = '';
+      };
+      window.addEventListener('click', function(event) {
+        if (event.target === serviceModal) {
+          serviceModal.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+      });
+    }
+    
   });
 })();
