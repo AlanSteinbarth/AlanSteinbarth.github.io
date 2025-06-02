@@ -11,10 +11,10 @@
     <meta property="og:title" content="Alan Steinbarth – AI & Data Science">
     <meta property="og:description" content="Portfolio, projects, AI, Data Science, Python implementations. Contact and cooperation.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://alansteinbarth.github.io/Logo2.png">
+    <meta property="og:image" content="https://alansteinbarth.github.io/logo-new.png">
     <meta property="og:url" content="https://alansteinbarth.github.io/index-en.html">
     <link rel="canonical" href="https://alansteinbarth.github.io/index-en.html">
-    <link rel="icon" type="image/png" href="Logo2.png">
+    <link rel="icon" type="image/png" href="logo-new.png">
     <meta name="theme-color" content="#6366f1">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://*; script-src 'self' https://www.googletagmanager.com https://www.google.com https://www.gstatic.com https://www.gstatic.com/recaptcha/; connect-src 'self' https://region1.google-analytics.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.google.com/ https://www.gstatic.com/recaptcha/;">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -32,14 +32,17 @@
             color: #2c3e50;
         }
         
-        /* Hero Section - główny obszar z miejscem na grafikę */
+        /* Hero Section - główny obszar z grafiką AI */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(102,126,234,0.95), rgba(118,75,162,0.95)), 
-                        radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1), transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05), transparent 50%);
-            background-size: cover;
-            background-position: center;
+            background: 
+                linear-gradient(135deg, rgba(102,126,234,0.85), rgba(118,75,162,0.85)), 
+                url('hero-ai-image.jpg'),
+                radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1), transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05), transparent 50%);
+            background-size: cover, cover, cover, cover;
+            background-position: center, center, center, center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -130,10 +133,33 @@
             transform: translateY(-2px);
         }
         
-        /* Sekcje główne */
+        /* Sekcje główne z subtelnym tłem */
         .section {
             padding: 80px 0;
             background: white;
+            position: relative;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                url('pattern-bg.png'),
+                radial-gradient(circle at 10% 10%, rgba(102,126,234,0.02) 2px, transparent 2px),
+                radial-gradient(circle at 90% 90%, rgba(118,75,162,0.02) 2px, transparent 2px);
+            background-size: 100px 100px, 50px 50px, 80px 80px;
+            background-repeat: repeat, repeat, repeat;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .section > * {
+            position: relative;
+            z-index: 2;
         }
         
         .container {
@@ -195,8 +221,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: white;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(102,126,234,0.3);
+            overflow: hidden;
+        }
+        
+        /* Ikony usług - prawdziwe grafiki */
+        .service-icon img {
+            width: 50px;
+            height: 50px;
+            filter: brightness(0) invert(1); /* Białe ikony */
+            z-index: 2;
+            position: relative;
+        }
+        
+        .service-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+            border-radius: 50%;
+            z-index: 1;
         }
         
         .service-card h3 {
@@ -510,19 +558,25 @@
             <h2 class="section-title">My Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🤖</div>
+                    <div class="service-icon">
+                        <img src="icon-solutions.png" alt="AI Solutions Icon">
+                    </div>
                     <h3>AI Solutions</h3>
                     <p>Custom AI implementations, machine learning models, and intelligent automation systems for your business needs.</p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">📊</div>
+                    <div class="service-icon">
+                        <img src="icon-data.png" alt="Data Science Icon">
+                    </div>
                     <h3>Data Science</h3>
                     <p>Advanced data analysis, visualization, and insights that drive informed business decisions and growth.</p>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">⚡</div>
+                    <div class="service-icon">
+                        <img src="icon-automation.png" alt="Automation Icon">
+                    </div>
                     <h3>Automation</h3>
                     <p>Business process automation, workflow optimization, and integration solutions to increase efficiency.</p>
                 </div>
