@@ -102,7 +102,12 @@ function hideCookieBanner() {
     window.addEventListener('keydown', function(e) {
       if(e.key === 'Escape') {
         const modal = document.getElementById('contactModal');
+        const serviceModal = document.getElementById('serviceModal');
         if(modal && modal.style.display !== 'none') modal.style.display = 'none';
+        if(serviceModal && serviceModal.style.display !== 'none') {
+          serviceModal.style.display = 'none';
+          document.body.style.overflow = '';
+        }
       }
     });
     

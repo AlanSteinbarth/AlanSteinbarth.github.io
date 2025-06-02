@@ -418,6 +418,30 @@
         }
         
         /* Modal styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(44,62,80,0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10001;
+        }
+        
+        .modal-content {
+            background: white;
+            max-width: 500px;
+            width: 90vw;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        
         .modal input:focus, .modal textarea:focus {
             outline: none;
             border-color: #667eea;
@@ -640,8 +664,8 @@
     </div>
 
     <!-- Modale usług -->
-    <div id="serviceModal" class="modal" style="display:none;z-index:10001;">
-      <div class="modal-content" style="max-width:500px;margin:5% auto;padding:2rem;position:relative;">
+    <div id="serviceModal" class="modal" style="display:none;">
+      <div class="modal-content">
         <button id="closeServiceModal" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;color:#667eea;cursor:pointer;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;">&times;</button>
         <div id="serviceModalContent"></div>
       </div>
