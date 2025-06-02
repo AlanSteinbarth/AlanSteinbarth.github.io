@@ -7,12 +7,18 @@
     <meta name="description" content="Alan Steinbarth – AI, Data Science, Python, automatyzacja, wdrożenia, konsultacje, Warszawa. Portfolio, projekty, kontakt.">
     <meta name="keywords" content="AI, Data Science, Python, Machine Learning, Automatyzacja, Warszawa, Alan Steinbarth, konsultacje, wdrożenia, portfolio, projekty">
     <meta name="author" content="Alan Steinbarth">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="copyright" content="VictoryMind.ai">
+    <meta name="language" content="pl">
+    <meta name="publisher" content="Alan Steinbarth">
+    <meta name="twitter:card" content="summary_large_image">
     <meta property="og:title" content="Alan Steinbarth – AI & Data Science">
     <meta property="og:description" content="Portfolio, projekty, wdrożenia AI, Data Science, Python. Kontakt i współpraca.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://alansteinbarth.github.io/logo-new.png">
     <meta property="og:url" content="https://alansteinbarth.github.io/">
+    <meta property="og:locale" content="pl_PL">
+    <meta property="og:site_name" content="VictoryMind.ai">
     <link rel="canonical" href="https://alansteinbarth.github.io/">
     <link rel="icon" type="image/png" href="logo-new.png">
     <meta name="theme-color" content="#6366f1">
@@ -20,6 +26,10 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <title>Alan Steinbarth – AI & Data Science</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="manifest" href="manifest.json">
+    <link rel="mask-icon" href="logo-new.png" color="#6366f1">
     <style>
         /* Reset i podstawowe style */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -158,6 +168,31 @@
             color: #2c3e50;
         }
         
+        /* Clickable section title */
+        .section-title-link {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-title-link:hover {
+            color: #667eea;
+        }
+        
+        .section-title-link::after {
+            content: '↗';
+            font-size: 0.7em;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        
+        .section-title-link:hover::after {
+            opacity: 1;
+        }
+        
         /* Usługi - 3 główne karty */
         .services-grid {
             display: grid;
@@ -244,6 +279,10 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid rgba(102,126,234,0.1);
             position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         
         .project-card::before {
@@ -270,6 +309,20 @@
             font-weight: 700;
             color: #667eea;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .project-title::after {
+            content: '↗';
+            font-size: 1rem;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-card:hover .project-title::after {
+            opacity: 1;
         }
         
         .project-tech {
@@ -387,144 +440,45 @@
             scroll-behavior: smooth;
         }
     </style>
-            padding: 2px 8px;
-            box-shadow: 0 1px 4px rgba(60,60,120,0.07);
-        }
-        .projects {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
-        .project-card {
-            background: #f8fafc;
-            border-radius: 10px;
-            box-shadow: 0 1px 6px rgba(60,60,120,0.06);
-            padding: 18px 16px 14px 16px;
-            transition: box-shadow 0.2s;
-        }
-        .project-card:hover {
-            box-shadow: 0 4px 16px rgba(99,102,241,0.13);
-        }
-        .project-title {
-            font-weight: 700;
-            color: #6366f1;
-            margin-bottom: 4px;
-            font-size: 1.08em;
-        }
-        .project-desc {
-            color: #444;
-            font-size: 0.98em;
-        }
-        .contact {
-            margin-top: 36px;
-            background: #6366f1;
-            color: #fff;
-            border-radius: 10px;
-            padding: 24px 18px;
-            text-align: center;
-            font-size: 1.1em;
-            box-shadow: 0 2px 8px rgba(99,102,241,0.10);
-        }
-        nav.navbar {
-            position: sticky;
-            top: 0;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(99,102,241,0.07);
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            padding: 12px 0 8px 0;
-            z-index: 100;
-            border-radius: 0 0 12px 12px;
-            margin-bottom: 18px;
-            transition: box-shadow 0.2s;
-        }
-        nav.navbar.sticky {
-            box-shadow: 0 4px 16px rgba(99,102,241,0.13);
-        }
-        nav.navbar a {
-            color: #6366f1;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.08em;
-            padding: 4px 12px;
-            border-radius: 6px;
-            transition: background 0.2s, color 0.2s;
-        }
-        nav.navbar a:hover {
-            background: #e0e7ff;
-            color: #2c3e50;
-        }
-        .fade-in {
-            opacity: 1 !important;
-            transform: translateY(0) scale(1) !important;
-            transition: opacity 0.7s, transform 0.7s;
-        }
-        .section, .projects .project-card {
-            opacity: 0;
-            transform: translateY(40px) scale(0.98);
-            transition: opacity 0.7s, transform 0.7s;
-        }
-        .footer {
-            margin-top: 48px;
-            padding: 18px 0 8px 0;
-            text-align: center;
-            color: #888;
-            font-size: 1.05em;
-        }
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            margin-top: 18px;
-        }
-        .tech-stack img {
-            height: 38px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 1px 4px rgba(60,60,120,0.07);
-            padding: 4px 10px;
-        }
-        @media (max-width: 900px) {
-            .main { padding: 18px 2vw; }
-            .header { flex-direction: column; align-items: flex-start; gap: 18px; }
-            .projects { grid-template-columns: 1fr; }
-            nav.navbar { gap: 4px; font-size: 0.90em; flex-wrap: nowrap; padding-left: 2vw; padding-right: 2vw; }
-            .footer { font-size: 0.95em; }
-            .section { margin: 24px 0 0 0; }
-            .section-title { font-size: 1.1em; }
-            .badges img, .tech-stack img { height: 28px; padding: 2px 4px; }
-            .project-card { padding: 12px 8px 10px 8px; }
-        }
-        @media (max-width: 600px) {
-            html, body { width: 100vw; overflow-x: hidden; }
-            .main { padding: 8px 0; border-radius: 0; box-shadow: none; }
-            .header { gap: 10px; }
-            .section { margin: 16px 0 0 0; }
-            .projects { gap: 8px; }
-            .project-card { font-size: 0.97em; }
-            nav.navbar {
-                gap: 2px;
-                padding: 8px 0 4px 0;
-                font-size: 0.82em;
-                flex-wrap: nowrap;
-                padding-left: 1vw;
-                padding-right: 1vw;
-            }
-            nav.navbar a {
-                font-size: 0.89em;
-                padding: 2px 6px;
-                margin: 0 0.5vw;
-            }
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "VictoryMind.ai",
+      "url": "https://victorymind.ai/",
+      "logo": "https://alansteinbarth.github.io/logo-new.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/alansteinbarth",
+        "https://github.com/AlanSteinbarth"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@victorymind.ai",
+        "contactType": "customer support",
+        "areaServed": "PL"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "VictoryMind.ai",
+      "url": "https://victorymind.ai/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://victorymind.ai/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Hero Section z miejscem na grafikę z ChatGPT -->
     <section class="hero">
         <div class="hero-content">
             <h1>VictoryMind.ai</h1>
-            <p class="subtitle">Automatyzacja biznesu z wykorzystaniem sztucznej inteligencji</p>
+            <p class="subtitle">Optymalizacja biznesu z wykorzystaniem sztucznej inteligencji</p>
             <a href="#contact" class="cta-button">Rozpocznij transformację</a>
         </div>
     </section>
@@ -539,7 +493,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="icon-automation.png" alt="Ikona automatyzacji">
+                        <img src="icon-automation.png" alt="Ikona automatyzacji" loading="lazy">
                     </div>
                     <h3>Automatyzacja Procesów</h3>
                     <p>Wdrażamy rozwiązania AI, które automatyzują powtarzalne zadania, oszczędzając czas i zwiększając efektywność zespołu.</p>
@@ -547,7 +501,7 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="icon-data.png" alt="Ikona analizy danych">
+                        <img src="icon-data.png" alt="Ikona analizy danych" loading="lazy">
                     </div>
                     <h3>Analiza Danych</h3>
                     <p>Przekształcamy Twoje dane w wartościowe insights. Raportowanie, predykcje i wizualizacje, które wspierają decyzje biznesowe.</p>
@@ -555,41 +509,40 @@
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <img src="icon-solutions.png" alt="Ikona dedykowanych rozwiązań">
+                        <img src="icon-solutions.png" alt="Ikona dedykowanych rozwiązań" loading="lazy">
                     </div>
                     <h3>Dedykowane Rozwiązania</h3>
                     <p>Tworzymy aplikacje AI dopasowane do specyfiki Twojej firmy. Od chatbotów po systemy rekomendacyjne.</p>
                 </div>
-                
             </div>
         </section>
 
         <!-- Sekcja: Wybrane projekty -->
         <section class="section">
-            <h2 class="section-title">Przykłady realizacji</h2>
+            <h2 class="section-title">
+                <a href="https://github.com/AlanSteinbarth" target="_blank" class="section-title-link">
+                    Przykłady realizacji
+                </a>
+            </h2>
             <div class="projects-grid">
-                
-                <div class="project-card">
+                <a href="https://github.com/AlanSteinbarth/Audio2Tekst" target="_blank" class="project-card">
                     <div class="project-card-content">
                         <h3 class="project-title">Audio2Tekst</h3>
                         <p class="project-tech">Automatyczna transkrypcja w 90+ językach</p>
                     </div>
-                </div>
-                
-                <div class="project-card">
+                </a>
+                <a href="https://github.com/AlanSteinbarth/Sokrates-AI" target="_blank" class="project-card">
                     <div class="project-card-content">
                         <h3 class="project-title">Sokrates AI</h3>
                         <p class="project-tech">Inteligentny asystent edukacyjny</p>
                     </div>
-                </div>
-                
-                <div class="project-card">
+                </a>
+                <a href="https://github.com/AlanSteinbarth/Notatki-Glosowe" target="_blank" class="project-card">
                     <div class="project-card-content">
                         <h3 class="project-title">Notatki Głosowe</h3>
                         <p class="project-tech">AI-powered wyszukiwanie semantyczne</p>
                     </div>
-                </div>
-                
+                </a>
             </div>
         </section>
 
@@ -624,7 +577,7 @@
             <a href="index-en.html" style="font-size: 1rem; color: white; text-decoration: underline;">English</a>
         </div>
         
-        <div>© 2025 VictoryMind.ai - Alan Steinbarth</div>
+        <div>© 2025 VictoryMind.ai</div>
         <div style="font-size: 0.9rem; opacity: 0.7; margin-top: 1rem;">
             <a href="polityka-prywatnosci.html" style="color: white; text-decoration: underline;">Polityka prywatności</a>
         </div>
@@ -634,39 +587,35 @@
     <div id="contactModal" class="modal" style="display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(44,62,80,0.8);backdrop-filter:blur(10px);justify-content:center;align-items:center;">
         <div style="background:#fff;max-width:500px;width:90vw;padding:2rem;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;">
             <button id="closeModal" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;color:#667eea;cursor:pointer;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;">&times;</button>
-            
             <h2 style="margin-top:0;color:#2c3e50;font-size:1.5rem;text-align:center;">Bezpłatna konsultacja AI</h2>
-            
             <form action="https://formspree.io/f/xwkgyyqg" method="POST" id="contactForm" style="text-align:left;">
                 <div style="margin-bottom:1rem;">
                     <label for="name" style="display:block;margin-bottom:0.5rem;color:#2c3e50;font-weight:600;">Imię i nazwisko:</label>
                     <input type="text" id="name" name="name" required style="width:100%;padding:0.8rem;border:2px solid #e0e7ff;border-radius:10px;font-size:1rem;transition:border-color 0.3s;">
                 </div>
-                
                 <div style="margin-bottom:1rem;">
                     <label for="email" style="display:block;margin-bottom:0.5rem;color:#2c3e50;font-weight:600;">E-mail:</label>
                     <input type="email" id="email" name="email" required style="width:100%;padding:0.8rem;border:2px solid #e0e7ff;border-radius:10px;font-size:1rem;transition:border-color 0.3s;">
                 </div>
-                
+                <div style="margin-bottom:1rem;">
+                    <label for="subject" style="display:block;margin-bottom:0.5rem;color:#2c3e50;font-weight:600;">Temat:</label>
+                    <input type="text" id="subject" name="subject" required style="width:100%;padding:0.8rem;border:2px solid #e0e7ff;border-radius:10px;font-size:1rem;transition:border-color 0.3s;">
+                </div>
                 <div style="margin-bottom:1rem;">
                     <label for="company" style="display:block;margin-bottom:0.5rem;color:#2c3e50;font-weight:600;">Firma (opcjonalnie):</label>
                     <input type="text" id="company" name="company" style="width:100%;padding:0.8rem;border:2px solid #e0e7ff;border-radius:10px;font-size:1rem;transition:border-color 0.3s;">
                 </div>
-                
                 <div style="margin-bottom:1.5rem;">
                     <label for="message" style="display:block;margin-bottom:0.5rem;color:#2c3e50;font-weight:600;">Opisz krótko swój projekt:</label>
                     <textarea id="message" name="message" rows="4" required style="width:100%;padding:0.8rem;border:2px solid #e0e7ff;border-radius:10px;font-size:1rem;resize:vertical;transition:border-color 0.3s;"></textarea>
                 </div>
-                
                 <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" style="margin-bottom:1.5rem;"></div>
-                
                 <div style="text-align:center;">
                     <button type="submit" style="background:linear-gradient(135deg, #667eea, #764ba2);color:#fff;padding:1rem 2rem;border:none;border-radius:50px;font-weight:600;font-size:1rem;cursor:pointer;transition:transform 0.3s ease,box-shadow 0.3s ease;box-shadow:0 5px 20px rgba(102,126,234,0.3);">
                         Wyślij zapytanie
                     </button>
                 </div>
             </form>
-            
             <div style="margin-top:1.5rem;text-align:center;font-size:0.9rem;color:#666;">
                 Odpowiedź w ciągu 24h • Konsultacja całkowicie bezpłatna
             </div>
@@ -674,72 +623,22 @@
     </div>
 
     <!-- Baner cookies -->
-    <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;width:100vw;z-index:99999;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-top:2px solid #667eea;box-shadow:0 -5px 20px rgba(0,0,0,0.1);padding:1.5rem;text-align:center;">
-        <div style="max-width:800px;margin:0 auto;">
-            <p style="color:#2c3e50;margin-bottom:1rem;font-size:1rem;">
-                Używamy ciasteczek do analizy ruchu (Google Analytics). Twoja prywatność jest ważna.
-            </p>
-            <div>
-                <button id="cookieAccept" style="background:#667eea;color:#fff;padding:0.8rem 1.5rem;border:none;border-radius:25px;font-weight:600;cursor:pointer;margin:0 0.5rem;transition:background 0.3s;">
-                    Akceptuję
-                </button>
-                <button id="cookieDecline" style="background:transparent;color:#667eea;padding:0.8rem 1.5rem;border:2px solid #667eea;border-radius:25px;font-weight:600;cursor:pointer;margin:0 0.5rem;transition:all 0.3s;">
-                    Odrzucam
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- Baner cookies -->
-    <div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;width:100vw;z-index:99999;background:#fffbe7;border-top:2px solid #6366f1;box-shadow:0 -2px 12px rgba(99,102,241,0.10);padding:18px 12px 12px 12px;text-align:center;font-size:1.08em;">
+    <div id="cookieBanner" class="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;width:100vw;z-index:99999;background:#fffbe7;border-top:2px solid #6366f1;box-shadow:0 -2px 12px rgba(99,102,241,0.10);padding:18px 12px 12px 12px;text-align:center;font-size:1.08em;">
       <span style="color:#2c3e50;">Ta strona korzysta z Google Analytics (anonimowe statystyki). Możesz zaakceptować lub odrzucić ciasteczka analityczne.</span><br>
-      <button id="cookieAccept" style="background:#6366f1;color:#fff;padding:8px 22px;border:none;border-radius:6px;font-weight:700;cursor:pointer;margin:12px 8px 0 0;">Akceptuję</button>
-      <button id="cookieDecline" style="background:#fff;color:#6366f1;padding:8px 22px;border:2px solid #6366f1;border-radius:6px;font-weight:700;cursor:pointer;margin:12px 0 0 0;">Odrzucam</button>
+      <button id="cookieAccept" class="cookie-btn cookie-accept" style="background:#6366f1;color:#fff;padding:8px 22px;border:none;border-radius:6px;font-weight:700;cursor:pointer;margin:12px 8px 0 0;">Akceptuję</button>
+      <button id="cookieDecline" class="cookie-btn cookie-decline" style="background:#fff;color:#6366f1;padding:8px 22px;border:2px solid #6366f1;border-radius:6px;font-weight:700;cursor:pointer;margin:12px 0 0 0;">Odrzucam</button>
       <div style="font-size:0.97em;margin-top:6px;opacity:0.7;">Więcej informacji: <a href="polityka-prywatnosci.html" style="color:#6366f1;text-decoration:underline;">Polityka prywatności</a></div>
     </div>
     <!-- Scroll to top button -->
     <button id="scrollToTop" aria-label="Powrót na górę">↑</button>
 
+    <!-- Przełącznik języka w prawym górnym rogu -->
+    <div style="position:fixed;top:24px;right:32px;z-index:10001;">
+      <a href="index-en.html" style="background:rgba(99,102,241,0.12);color:#6366f1;padding:8px 20px;border-radius:25px;font-weight:600;text-decoration:none;box-shadow:0 2px 8px rgba(99,102,241,0.08);backdrop-filter:blur(8px);transition:background 0.3s;">English</a>
+    </div>
+
     <!-- Scripts -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="main.js"></script>
-    <!-- 9. Mikroformaty schema.org (SEO) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Alan Steinbarth",
-  "jobTitle": "AI & Data Science Engineer",
-  "image": "https://alansteinbarth.github.io/Logo2.png",
-  "url": "https://victorymind.ai/",
-  "sameAs": [
-    "https://www.linkedin.com/in/alansteinbarth",
-    "https://github.com/AlanSteinbarth"
-  ],
-  "worksFor": {
-    "@type": "Organization",
-    "name": "VictoryMind.ai",
-    "url": "https://victorymind.ai/"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "ul. Zwirowa 50D",
-    "addressLocality": "Rusiec",
-    "postalCode": "05-830",
-    "addressCountry": "PL"
-  },
-  "email": "contact@victorymind.ai"
-}
-</script>
-<!-- 10. Favicony w różnych rozmiarach -->
-<link rel="icon" type="image/png" sizes="32x32" href="Logo2.png">
-<link rel="icon" type="image/png" sizes="16x16" href="Logo2.png">
-<link rel="apple-touch-icon" sizes="180x180" href="Logo2.png">
-<!-- 11. robots.txt i sitemap.xml -->
-<!-- Pliki robots.txt i sitemap.xml należy dodać do katalogu głównego repozytorium. Przykładowa zawartość: -->
-<!-- robots.txt -->
-<!-- User-agent: * -->
-<!-- Allow: / -->
-<!-- Sitemap: https://victorymind.ai/sitemap.xml -->
-<!-- sitemap.xml (należy wygenerować i dodać osobno) -->
 </body>
 </html>

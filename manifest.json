@@ -1,0 +1,21 @@
+{
+  "name": "VictoryMind.ai",
+  "short_name": "VictoryMind",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#6366f1",
+  "theme_color": "#6366f1",
+  "description": "AI, Data Science, automatyzacja i wdrożenia dla biznesu. Alan Steinbarth.",
+  "icons": [
+    {
+      "src": "logo-new.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo-new.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
