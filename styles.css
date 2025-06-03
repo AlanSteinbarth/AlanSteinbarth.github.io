@@ -9,6 +9,26 @@ body {
     color: #2c3e50;
 }
 
+/* Hover effects dla przycisków nawigacji */
+.nav-button {
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25) !important;
+}
+
+.nav-button-blog:hover {
+    background: rgba(99,102,241,0.15) !important;
+    border-color: rgba(99,102,241,0.5) !important;
+}
+
+.nav-button-lang:hover {
+    background: rgba(44,62,80,0.15) !important;
+    border-color: rgba(44,62,80,0.5) !important;
+}
+
 /* Hero Section - główny obszar z grafiką AI */
 .hero {
     height: 100vh;
@@ -466,12 +486,59 @@ body {
     transform: translateY(-3px);
 }
 
-/* Responsywność */
+/* Blog styles */
+.blog-article {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15) !important;
+}
+
+.blog-tag {
+    transition: all 0.3s ease;
+}
+
+.blog-tag:hover {
+    transform: scale(1.05);
+}
+
+.blog-cta-button {
+    transition: all 0.3s ease;
+}
+
+.blog-cta-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(99,102,241,0.4) !important;
+}
+
+/* Responsive design dla blog */
 @media (max-width: 768px) {
     .hero h1 { font-size: 2.5rem; }
     .section { padding: 3rem 1rem; }
     .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .projects-grid { grid-template-columns: 1fr; }
+    .blog-article {
+        padding: 24px !important;
+    }
+    
+    .blog-header-content {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+    
+    .blog-date-section {
+        text-align: left !important;
+    }
+    
+    .blog-hero h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    .blog-hero p {
+        font-size: 1.1rem !important;
+    }
 }
 
 /* Animacje */
