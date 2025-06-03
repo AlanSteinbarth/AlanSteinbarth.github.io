@@ -35,6 +35,24 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="logo-new.png" color="#6366f1">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H59TGC7RZH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-H59TGC7RZH');
+        
+        // Enhanced page tracking
+        gtag('event', 'page_view', {
+            page_title: 'VictoryMind.ai - AI & Data Science',
+            page_location: window.location.href,
+            content_group1: 'Home',
+            content_group2: 'Landing Page'
+        });
+    </script>
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -89,6 +107,7 @@
     </script>
     <link rel="alternate" hreflang="pl" href="https://victorymind.ai/" />
     <link rel="alternate" hreflang="en" href="https://victorymind.ai/en/" />
+    <link rel="alternate" type="application/rss+xml" title="Blog VictoryMind.ai RSS" href="https://victorymind.ai/blog/rss.xml" />
 </head>
 <body>
     <!-- Hero Section z miejscem na grafikę z ChatGPT -->
@@ -266,10 +285,64 @@
     <div style="position:fixed;top:24px;right:32px;z-index:10001;display:flex;gap:16px;align-items:center;">
       <a href="blog/fakty-mity-ai.html" class="nav-button nav-button-blog" style="background:rgba(255,255,255,0.95);color:#6366f1;padding:10px 22px;border-radius:25px;font-weight:600;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);backdrop-filter:blur(10px);transition:all 0.3s ease;border:2px solid rgba(99,102,241,0.2);">Blog</a>
       <a href="en/index.html" class="nav-button nav-button-lang" style="background:rgba(255,255,255,0.95);color:#2c3e50;padding:10px 22px;border-radius:25px;font-weight:600;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);backdrop-filter:blur(10px);transition:all 0.3s ease;border:2px solid rgba(44,62,80,0.2);">English</a>
-    </div>
-
-    <!-- Scripts -->
-
+    </div>    <!-- Scripts -->
     <script src="main.js"></script>
+    
+    <!-- Google Analytics enhanced tracking -->
+    <script>
+        // Track blog link clicks
+        document.querySelectorAll('a[href*="blog/"]').forEach(link => {
+            link.addEventListener('click', function() {
+                gtag('event', 'click', {
+                    event_category: 'navigation',
+                    event_label: 'blog_access',
+                    page_location: window.location.href
+                });
+            });
+        });
+        
+        // Track contact form interactions
+        document.querySelectorAll('#contact input, #contact textarea').forEach(field => {
+            field.addEventListener('focus', function() {
+                gtag('event', 'form_start', {
+                    event_category: 'engagement',
+                    event_label: 'contact_form'
+                });
+            }, { once: true });
+        });
+        
+        // Track form submission
+        document.querySelector('#contact form').addEventListener('submit', function() {
+            gtag('event', 'form_submit', {
+                event_category: 'conversion',
+                event_label: 'contact_form'
+            });
+        });
+        
+        // Track scroll depth
+        let maxScroll = 0;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+                maxScroll = scrollPercent;
+                gtag('event', 'scroll', {
+                    event_category: 'engagement',
+                    event_label: 'scroll_depth',
+                    value: scrollPercent
+                });
+            }
+        });
+        
+        // Track time on page
+        let startTime = Date.now();
+        window.addEventListener('beforeunload', function() {
+            const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+            gtag('event', 'timing_complete', {
+                name: 'time_on_page',
+                value: timeOnPage,
+                event_category: 'engagement'
+            });
+        });
+    </script>
 </body>
 </html>

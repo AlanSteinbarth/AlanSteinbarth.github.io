@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog VictoryMind.ai - Fakty i Mity AI</title>
+    <link>https://victorymind.ai/blog/</link>
+    <description>Rzetelna wiedza o sztucznej inteligencji, obalanie mitów i praktyczne porady dla biznesu. Nowe wpisy co tydzień.</description>
+    <language>pl-PL</language>
+    <lastBuildDate>Mon, 03 Jun 2025 12:00:00 +0200</lastBuildDate>
+    <pubDate>Mon, 03 Jun 2025 12:00:00 +0200</pubDate>
+    <ttl>1440</ttl>
+    <managingEditor>contact@victorymind.ai (Alan Steinbarth)</managingEditor>
+    <webMaster>contact@victorymind.ai (Alan Steinbarth)</webMaster>
+    <image>
+      <url>https://victorymind.ai/logo-new.png</url>
+      <title>Blog VictoryMind.ai</title>
+      <link>https://victorymind.ai/blog/</link>
+    </image>
+    <atom:link href="https://victorymind.ai/blog/rss.xml" rel="self" type="application/rss+xml" />
+    
+    <!-- Wpis 1: Fakty i Mity AI -->
+    <item>
+      <title>🧠 Fakty i Mity AI</title>
+      <link>https://victorymind.ai/blog/fakty-mity-ai.html</link>
+      <description><![CDATA[Poznaj prawdę o sztucznej inteligencji. Obalamy najczęstsze mity i wyjaśniamy, jak AI naprawdę działa w biznesie i codziennym życiu. Przeczytaj o tym, czy AI zastąpi ludzi w pracy, czy rozumie świat jak człowiek, i odkryj faktyczne zastosowania AI w biznesie.]]></description>
+      <pubDate>Mon, 03 Jun 2025 09:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/fakty-mity-ai.html</guid>
+      <category>Podstawy AI</category>
+      <category>Mity</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    
+    <!-- Template dla kolejnych wpisów:
+    <item>
+      <title>[TYTUŁ WPISU]</title>
+      <link>https://victorymind.ai/blog/[SLUG].html</link>
+      <description><![CDATA[[OPIS WPISU]]]></description>
+      <pubDate>[DATA RFC 2822 format]</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/[SLUG].html</guid>
+      <category>[KATEGORIA]</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    -->
+  </channel>
+</rss>
