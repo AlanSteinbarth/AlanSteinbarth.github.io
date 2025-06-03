@@ -22,7 +22,7 @@
     <link rel="canonical" href="https://alansteinbarth.github.io/">
     <link rel="icon" type="image/png" href="logo-new.png">
     <meta name="theme-color" content="#6366f1">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://*; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://region1.google-analytics.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://* data:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://formspree.io https://region1.google-analytics.com https://www.google-analytics.com; form-action 'self' https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <title>Alan Steinbarth – AI & Data Science</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -669,6 +669,10 @@
             <button id="closeModal" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.5rem;color:#667eea;cursor:pointer;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;">&times;</button>
             <h2 style="margin-top:0;color:#2c3e50;font-size:1.5rem;text-align:center;">Bezpłatna konsultacja AI</h2>
             <form action="https://formspree.io/f/xwkgyyqg" method="POST" id="contactForm" style="text-align:left;">
+                <!-- Ukryte pola dla Formspree -->
+                <input type="hidden" name="_replyto" value="">
+                <input type="hidden" name="_subject" value="Nowe zapytanie z VictoryMind.ai">
+                <input type="hidden" name="_next" value="https://alansteinbarth.github.io/?sent=1">
                 <div style="margin-bottom:1rem;">
                     <label for="name" style="display:block;margin-bottom:0.5rem;color:#2c3e50;font-weight:600;">Imię i nazwisko:</label>
                     <input type="text" id="name" name="name" required style="width:100%;padding:0.8rem;border:2px solid #e0e7ff;border-radius:10px;font-size:1rem;transition:border-color 0.3s;">

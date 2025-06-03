@@ -128,6 +128,14 @@ function hideCookieBanner() {
     // Walidacja formularza kontaktowego
     const contactForm = document.getElementById('contactForm');
     if(contactForm) {
+      // Sprawdzenie czy formularz został wysłany
+      const urlParams = new URLSearchParams(window.location.search);
+      if(urlParams.get('sent') === '1') {
+        alert('Dziękujemy za wiadomość! Odpowiemy w ciągu 24h.');
+        // Usunięcie parametru z URL
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+      
       contactForm.addEventListener('submit', function(e) {
         const name = document.getElementById('name');
         const email = document.getElementById('email');
