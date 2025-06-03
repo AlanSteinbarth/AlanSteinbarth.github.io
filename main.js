@@ -137,33 +137,49 @@ function hideCookieBanner() {
       }
       
       contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
         const name = document.getElementById('name');
         const email = document.getElementById('email');
         const message = document.getElementById('message');
         let valid = true;
         let errorMsg = '';
-        
         if(!name.value.trim()) { 
           valid = false; 
           errorMsg += 'Podaj imię i nazwisko.\n'; 
         }
-        
-        if(!email.value.match(/^\S+@\S+\.\S+$/)) { 
-          valid = false; 
-          errorMsg += 'Podaj poprawny e-mail.\n'; 
+        if(!email.value.match(/^\S+@\S+\.\S+$/)) {
+          valid = false;
+          errorMsg += 'Podaj poprawny adres e-mail.\n';
         }
-        
-        if(!message.value.trim()) { 
-          valid = false; 
-          errorMsg += 'Opisz swój projekt.\n'; 
+        if(!message.value.trim()) {
+          valid = false;
+          errorMsg += 'Opisz swój projekt.\n';
         }
-        
-        // Sprawdzenie reCAPTCHA nie jest potrzebne - usunięte
-        
         if(!valid) {
           alert(errorMsg);
-          e.preventDefault();
+          return;
         }
+        // AJAX submit
+        const formData = new FormData(contactForm);
+        fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+          if(response.ok) {
+            alert('Dziękujemy za wiadomość! Odpowiemy w ciągu 24h.');
+            contactForm.reset();
+            // Zamknij modal jeśli jest otwarty
+            const modal = document.getElementById('contactModal');
+            if(modal) modal.style.display = 'none';
+          } else {
+            alert('Wystąpił błąd podczas wysyłania. Spróbuj ponownie później.');
+          }
+        })
+        .catch(() => {
+          alert('Wystąpił błąd podczas wysyłania. Spróbuj ponownie później.');
+        });
       });
     }
     
