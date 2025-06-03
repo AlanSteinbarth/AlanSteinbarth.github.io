@@ -384,5 +384,18 @@ function hideCookieBanner() {
       });
     }
     
+    // Rejestracja Service Worker dla cache'owania
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function(registration) {
+            console.log('Service Worker zarejestrowany:', registration.scope);
+          })
+          .catch(function(error) {
+            console.log('Błąd rejestracji Service Worker:', error);
+          });
+      });
+    }
+    
   });
 })();
