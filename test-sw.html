@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Service Worker - VictoryMind.ai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        #log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Test Service Worker</h1>
+        
+        <div id="sw-status" class="status info">
+            Sprawdzanie Service Worker...
+        </div>
+        
+        <div class="controls">
+            <button onclick="testServiceWorker()">🔄 Test Service Worker</button>
+            <button onclick="testCache()">💾 Test Cache</button>
+            <button onclick="clearCache()">🗑️ Wyczyść Cache</button>
+            <button onclick="clearLog()">📝 Wyczyść Log</button>
+        </div>
+        
+        <div id="log"></div>
+    </div>
+
+    <script>
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${message}\n`;
+            logDiv.textContent += logEntry;
+            logDiv.scrollTop = logDiv.scrollHeight;
+            
+            console.log(message);
+        }
+
+        function clearLog() {
+            document.getElementById('log').textContent = '';
+        }
+
+        async function testServiceWorker() {
+            log('🔍 Rozpoczynam test Service Worker...');
+            
+            if ('serviceWorker' in navigator) {
+                log('✅ Service Worker jest obsługiwany przez przeglądarkę');
+                
+                try {
+                    const registration = await navigator.serviceWorker.register('/sw.js');
+                    log(`✅ Service Worker zarejestrowany: ${registration.scope}`);
+                    
+                    if (registration.installing) {
+                        log('⏳ Service Worker się instaluje...');
+                    } else if (registration.waiting) {
+                        log('⏳ Service Worker czeka na aktywację...');
+                    } else if (registration.active) {
+                        log('✅ Service Worker jest aktywny!');
+                        document.getElementById('sw-status').className = 'status success';
+                        document.getElementById('sw-status').textContent = '✅ Service Worker działa poprawnie';
+                    }
+                    
+                    // Test aktualizacji
+                    registration.addEventListener('updatefound', () => {
+                        log('🔄 Znaleziono aktualizację Service Worker');
+                    });
+                    
+                } catch (error) {
+                    log(`❌ Błąd rejestracji Service Worker: ${error.message}`);
+                    document.getElementById('sw-status').className = 'status error';
+                    document.getElementById('sw-status').textContent = '❌ Service Worker ma problemy';
+                }
+            } else {
+                log('❌ Service Worker nie jest obsługiwany przez tę przeglądarkę');
+                document.getElementById('sw-status').className = 'status error';
+                document.getElementById('sw-status').textContent = '❌ Brak obsługi Service Worker';
+            }
+        }
+
+        async function testCache() {
+            log('💾 Testuję cache...');
+            
+            if ('caches' in window) {
+                try {
+                    const cacheNames = await caches.keys();
+                    log(`📦 Znalezione cache: ${cacheNames.join(', ')}`);
+                    
+                    for (const cacheName of cacheNames) {
+                        const cache = await caches.open(cacheName);
+                        const requests = await cache.keys();
+                        log(`📁 Cache "${cacheName}" zawiera ${requests.length} plików:`);
+                        
+                        requests.forEach(request => {
+                            log(`  - ${request.url}`);
+                        });
+                    }
+                    
+                    // Test dostępu do konkretnych plików
+                    const testUrls = ['/', '/styles.css', '/main.js', '/logo-new.png'];
+                    for (const url of testUrls) {
+                        const response = await caches.match(url);
+                        if (response) {
+                            log(`✅ ${url} - znaleziono w cache`);
+                        } else {
+                            log(`❌ ${url} - nie ma w cache`);
+                        }
+                    }
+                    
+                } catch (error) {
+                    log(`❌ Błąd testowania cache: ${error.message}`);
+                }
+            } else {
+                log('❌ Cache API nie jest obsługiwane');
+            }
+        }
+
+        async function clearCache() {
+            log('🗑️ Czyszczę cache...');
+            
+            if ('caches' in window) {
+                try {
+                    const cacheNames = await caches.keys();
+                    for (const cacheName of cacheNames) {
+                        await caches.delete(cacheName);
+                        log(`🗑️ Usunięto cache: ${cacheName}`);
+                    }
+                    log('✅ Wszystkie cache zostały wyczyszczone');
+                    
+                    // Wyrejestruj Service Worker
+                    if ('serviceWorker' in navigator) {
+                        const registrations = await navigator.serviceWorker.getRegistrations();
+                        for (const registration of registrations) {
+                            await registration.unregister();
+                            log('🗑️ Service Worker wyrejestrowany');
+                        }
+                    }
+                    
+                } catch (error) {
+                    log(`❌ Błąd czyszczenia cache: ${error.message}`);
+                }
+            }
+        }
+
+        // Automatyczny test przy ładowaniu strony
+        window.addEventListener('load', () => {
+            log('🚀 Strona załadowana, rozpoczynam automatyczny test...');
+            testServiceWorker();
+        });
+
+        // Nasłuchuj komunikatów z Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.addEventListener('message', event => {
+                log(`📨 Wiadomość z SW: ${event.data}`);
+            });
+        }
+    </script>
+</body>
+</html>

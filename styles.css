@@ -362,7 +362,10 @@ body {
 }
 
 .contact-button:hover {
-    background: rgba(255,255,255,0.3);
+    background: linear-gradient(135deg, #5a67d8, #667eea) !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 12px 35px rgba(102,126,234,0.6) !important;
+    border: 3px solid #fff !important;
 }
 
 /* Footer - minimalistyczny */

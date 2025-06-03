@@ -1,18 +1,21 @@
 // Service Worker dla VictoryMind.ai
 // Optymalizuje wydajność poprzez cache'owanie zasobów
 
-const CACHE_NAME = 'victorymind-v1.3';
+const CACHE_NAME = 'victorymind-v1.5';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/index-en.html',
+  '/en/index.html',
   '/styles.css',
   '/main.js',
   '/Tlo_wersja_2.webp',
-  '/Tlo_wersja_2.png',
   '/logo-new.png',
-  '/manifest.json'
+  '/manifest.json',
+  '/blog/fakty-mity-ai.html',
+  '/blog/rss.xml'
 ];
+
+console.log('Service Worker inicjalizowany dla VictoryMind.ai');
 
 // Instalacja Service Worker
 self.addEventListener('install', function(event) {
@@ -20,7 +23,18 @@ self.addEventListener('install', function(event) {
     caches.open(CACHE_NAME)
       .then(function(cache) {
         console.log('Cache otwarty');
-        return cache.addAll(urlsToCache);
+        // Cache pliki jeden po drugim z obsługą błędów
+        return Promise.allSettled(
+          urlsToCache.map(url => 
+            cache.add(url).catch(error => {
+              console.warn('Nie udało się cache\'ować:', url, error);
+              return null;
+            })
+          )
+        );
+      })
+      .catch(error => {
+        console.error('Błąd podczas instalacji Service Worker:', error);
       })
   );
 });
@@ -49,17 +63,25 @@ self.addEventListener('fetch', function(event) {
             caches.open(CACHE_NAME)
               .then(function(cache) {
                 cache.put(event.request, responseToCache);
+              })
+              .catch(error => {
+                console.warn('Nie udało się zapisać do cache:', event.request.url, error);
               });
             
             return response;
           }
-        );
+        ).catch(function(error) {
+          console.error('Błąd podczas pobierania z sieci:', event.request.url, error);
+          // Zwróć pustą odpowiedź w przypadku błędu
+          return new Response('', { status: 200, statusText: 'OK' });
+        });
       })
   );
 });
 
 // Aktywacja - usuń stare cache
 self.addEventListener('activate', function(event) {
+  console.log('Service Worker aktywowany');
   event.waitUntil(
     caches.keys().then(function(cacheNames) {
       return Promise.all(
@@ -70,6 +92,8 @@ self.addEventListener('activate', function(event) {
           }
         })
       );
+    }).then(() => {
+      console.log('Service Worker gotowy do pracy');
     })
   );
 });

@@ -189,7 +189,7 @@
                 <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #222; background:rgba(255,255,255,0.85); padding:8px 0; border-radius:8px;">
                     Każdy projekt zaczynamy od bezpłatnej konsultacji. Omówimy Twoje potrzeby i zaproponujemy optymalne rozwiązanie.
                 </p>
-                <button class="contact-button" id="openContactModal" style="background:linear-gradient(90deg,#6366f1,#764ba2);color:#fff;font-weight:700;box-shadow:0 2px 8px rgba(99,102,241,0.15);border:none;">Umów bezpłatną konsultację</button>
+                <button class="contact-button" id="openContactModal" style="background:linear-gradient(135deg, #667eea, #764ba2);color:#fff;font-weight:700;padding:1.2rem 2.5rem;border:3px solid #fff;border-radius:50px;box-shadow:0 8px 25px rgba(102,126,234,0.4);transform:scale(1);transition:all 0.3s ease;">Umów bezpłatną konsultację</button>
                 
                 <div style="margin-top: 2rem; font-size: 1rem; color:#222; background:rgba(255,255,255,0.85); padding:8px 0; border-radius:8px;">
                     <strong>Alan Steinbarth</strong><br>
@@ -290,37 +290,40 @@
     
     <!-- Google Analytics enhanced tracking -->
     <script>
-        // Track blog link clicks
-        document.querySelectorAll('a[href*="blog/"]').forEach(link => {
-            link.addEventListener('click', function() {
-                gtag('event', 'click', {
-                    event_category: 'navigation',
-                    event_label: 'blog_access',
-                    page_location: window.location.href
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track blog link clicks
+            document.querySelectorAll('a[href*="blog/"]').forEach(link => {
+                link.addEventListener('click', function() {
+                    gtag('event', 'click', {
+                        event_category: 'navigation',
+                        event_label: 'blog_access',
+                        page_location: window.location.href
+                    });
                 });
             });
-        });
-        
-        // Track contact form interactions
-        document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(field => {
-            field.addEventListener('focus', function() {
-                gtag('event', 'form_start', {
-                    event_category: 'engagement',
-                    event_label: 'contact_form'
-                });
-            }, { once: true });
-        });
-        
-        // Track form submission
-        const contactForm = document.querySelector('#contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function() {
-                gtag('event', 'form_submit', {
-                    event_category: 'conversion',
-                    event_label: 'contact_form'
-                });
+            
+            // Track contact form interactions
+            document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(field => {
+                field.addEventListener('focus', function() {
+                    gtag('event', 'form_start', {
+                        event_category: 'engagement',
+                        event_label: 'contact_form'
+                    });
+                }, { once: true });
             });
-        }
+            
+            // Track form submission
+            const contactForm = document.querySelector('#contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function() {
+                    gtag('event', 'form_submit', {
+                        event_category: 'conversion',
+                        event_label: 'contact_form'
+                    });
+                });
+            }
+        });
         
         // Track scroll depth
         let maxScroll = 0;
