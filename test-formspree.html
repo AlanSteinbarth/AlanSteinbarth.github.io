@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Formspree - VictoryMind.ai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 5px 10px 0;
+        }
+        button:hover {
+            background: #5855eb;
+        }
+        .ajax-btn {
+            background: #10b981;
+        }
+        .ajax-btn:hover {
+            background: #059669;
+        }
+        .response {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+        .success {
+            background: #d1fae5;
+            border: 1px solid #10b981;
+            color: #065f46;
+        }
+        .error {
+            background: #fee2e2;
+            border: 1px solid #ef4444;
+            color: #991b1b;
+        }
+        .info {
+            background: #dbeafe;
+            border: 1px solid #3b82f6;
+            color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Test Formspree Integration</h1>
+        <p><strong>Endpoint:</strong> https://formspree.io/f/xwkgyyqg</p>
+        <p><strong>Czas testu:</strong> <span id="timestamp"></span></p>
+        
+        <div id="responseArea"></div>
+    </div>
+
+    <div class="test-container">
+        <h2>1. Test podstawowego formularza (standardowy submit)</h2>
+        <form action="https://formspree.io/f/xwkgyyqg" method="POST" id="basicForm">
+            <input type="hidden" name="_replyto" value="">
+            <input type="hidden" name="_subject" value="Test podstawowy - VictoryMind.ai">
+            <input type="hidden" name="_next" value="https://victorymind.ai/test-formspree.html?success=basic">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            
+            <div class="form-group">
+                <label for="basic_name">Imię:</label>
+                <input type="text" id="basic_name" name="name" value="Test User" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="basic_email">Email:</label>
+                <input type="email" id="basic_email" name="email" value="test@example.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="basic_message">Wiadomość:</label>
+                <textarea id="basic_message" name="message" required>To jest test podstawowego formularza.</textarea>
+            </div>
+            
+            <button type="submit">Wyślij formularz podstawowy</button>
+        </form>
+    </div>
+
+    <div class="test-container">
+        <h2>2. Test AJAX formularza (jak na stronie głównej)</h2>
+        <form id="ajaxForm">
+            <input type="hidden" name="_replyto" value="">
+            <input type="hidden" name="_subject" value="Test AJAX - VictoryMind.ai">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+            
+            <div class="form-group">
+                <label for="ajax_name">Imię:</label>
+                <input type="text" id="ajax_name" name="name" value="AJAX Test User" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="ajax_email">Email:</label>
+                <input type="email" id="ajax_email" name="email" value="ajax@example.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="ajax_message">Wiadomość:</label>
+                <textarea id="ajax_message" name="message" required>To jest test formularza AJAX.</textarea>
+            </div>
+            
+            <button type="submit" class="ajax-btn">Wyślij przez AJAX</button>
+        </form>
+    </div>
+
+    <div class="test-container">
+        <h2>3. Test diagnostyczny Formspree</h2>
+        <button onclick="testFormspreeEndpoint()" style="background: #f59e0b;">🔍 Sprawdź status endpoint</button>
+        <button onclick="testCORS()" style="background: #8b5cf6;">🌐 Test CORS</button>
+        <button onclick="checkFormspreeConfig()" style="background: #ef4444;">⚙️ Sprawdź konfigurację</button>
+    </div>
+
+    <script>
+        // Display current timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString('pl-PL');
+        
+        // Utility function to display responses
+        function showResponse(message, type = 'info') {
+            const responseArea = document.getElementById('responseArea');
+            const div = document.createElement('div');
+            div.className = `response ${type}`;
+            div.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            responseArea.appendChild(div);
+            responseArea.scrollTop = responseArea.scrollHeight;
+        }
+        
+        // Check URL parameters for success message
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'basic') {
+            showResponse('✅ Formularz podstawowy został wysłany pomyślnie!', 'success');
+        }
+        
+        // AJAX form handler (like on main site)
+        document.getElementById('ajaxForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            showResponse('🚀 Wysyłanie formularza AJAX...', 'info');
+            
+            const formData = new FormData(this);
+            formData.append('_replyto', formData.get('email'));
+            
+            try {
+                const response = await fetch('https://formspree.io/f/xwkgyyqg', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 
+                        'Accept': 'application/json'
+                    },
+                    mode: 'cors'
+                });
+                
+                const responseText = await response.text();
+                
+                showResponse(`Status: ${response.status} ${response.statusText}`, response.ok ? 'success' : 'error');
+                showResponse(`Headers: ${JSON.stringify([...response.headers.entries()])}`, 'info');
+                showResponse(`Response: ${responseText}`, 'info');
+                
+                if (response.ok) {
+                    showResponse('✅ AJAX formularz wysłany pomyślnie!', 'success');
+                    this.reset();
+                } else {
+                    showResponse(`❌ Błąd AJAX: ${response.status}`, 'error');
+                }
+                
+            } catch (error) {
+                showResponse(`❌ Błąd sieci: ${error.message}`, 'error');
+                console.error('Fetch error:', error);
+            }
+        });
+        
+        // Test Formspree endpoint status
+        async function testFormspreeEndpoint() {
+            showResponse('🔍 Sprawdzanie statusu endpoint Formspree...', 'info');
+            
+            try {
+                const response = await fetch('https://formspree.io/f/xwkgyyqg', {
+                    method: 'GET',
+                    mode: 'cors'
+                });
+                
+                showResponse(`GET Status: ${response.status} ${response.statusText}`, 'info');
+                
+                if (response.status === 405) {
+                    showResponse('✅ Endpoint dostępny (405 Method Not Allowed to oczekiwany response dla GET)', 'success');
+                } else {
+                    showResponse(`⚠️ Nieoczekiwany status dla GET: ${response.status}`, 'error');
+                }
+                
+            } catch (error) {
+                showResponse(`❌ Błąd połączenia z endpoint: ${error.message}`, 'error');
+            }
+        }
+        
+        // Test CORS
+        async function testCORS() {
+            showResponse('🌐 Testowanie CORS...', 'info');
+            
+            try {
+                const response = await fetch('https://formspree.io/f/xwkgyyqg', {
+                    method: 'OPTIONS',
+                    mode: 'cors'
+                });
+                
+                showResponse(`OPTIONS Status: ${response.status}`, 'info');
+                showResponse(`CORS Headers: ${JSON.stringify([...response.headers.entries()])}`, 'info');
+                
+            } catch (error) {
+                showResponse(`❌ Błąd CORS: ${error.message}`, 'error');
+            }
+        }
+        
+        // Check Formspree configuration
+        function checkFormspreeConfig() {
+            showResponse('⚙️ Sprawdzanie konfiguracji...', 'info');
+            
+            const checks = [
+                {
+                    name: 'Endpoint URL',
+                    value: 'https://formspree.io/f/xwkgyyqg',
+                    status: 'OK'
+                },
+                {
+                    name: 'Current domain',
+                    value: window.location.origin,
+                    status: window.location.protocol === 'file:' ? 'WARNING: file:// protocol' : 'OK'
+                },
+                {
+                    name: 'User Agent',
+                    value: navigator.userAgent.substring(0, 100) + '...',
+                    status: 'OK'
+                },
+                {
+                    name: 'Referer',
+                    value: document.referrer || 'None',
+                    status: 'OK'
+                }
+            ];
+            
+            checks.forEach(check => {
+                showResponse(`${check.name}: ${check.value} [${check.status}]`, 'info');
+            });
+            
+            if (window.location.protocol === 'file:') {
+                showResponse('⚠️ UWAGA: Testowanie z file:// może powodować problemy CORS. Spróbuj przez serwer HTTP.', 'error');
+            }
+        }
+        
+        // Auto-test on load
+        setTimeout(() => {
+            showResponse('🎯 Automatyczny test diagnostyczny...', 'info');
+            testFormspreeEndpoint();
+        }, 1000);
+    </script>
+</body>
+</html>

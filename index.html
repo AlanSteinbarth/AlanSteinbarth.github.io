@@ -230,6 +230,8 @@
                 <input type="hidden" name="_replyto" value="">
                 <input type="hidden" name="_subject" value="Nowe zapytanie z VictoryMind.ai">
                 <input type="hidden" name="_next" value="https://victorymind.ai/?sent=1">
+                <!-- Anti-spam honeypot field (musi być ukryte i puste) -->
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                 <div style="margin-bottom:1rem;">
                     <label for="name" style="display:block;margin-bottom:0.5rem;color:#2c3e50;font-weight:600;">Imię i nazwisko:</label>
                     <input type="text" id="name" name="name" required style="width:100%;padding:0.8rem;border:2px solid #e0e7ff;border-radius:10px;font-size:1rem;transition:border-color 0.3s;">

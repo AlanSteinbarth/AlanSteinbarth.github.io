@@ -159,26 +159,71 @@ function hideCookieBanner() {
           alert(errorMsg);
           return;
         }
-        // AJAX submit
+        // AJAX submit with improved error handling
         const formData = new FormData(contactForm);
+        
+        // Add required fields for Formspree
+        formData.append('_replyto', formData.get('email'));
+        
+        // Add anti-spam measures
+        if (!formData.get('_gotcha')) {
+          formData.append('_gotcha', '');
+        }
+        
         fetch(contactForm.action, {
           method: 'POST',
           body: formData,
-          headers: { 'Accept': 'application/json' }
+          headers: { 
+            'Accept': 'application/json'
+          },
+          mode: 'cors'
         })
         .then(response => {
+          console.log('Formspree response status:', response.status);
+          console.log('Formspree response headers:', response.headers);
+          
           if(response.ok) {
-            alert('Dziękujemy za wiadomość! Odpowiemy w ciągu 24h.');
+            // Check if we're on English version
+            const isEnglish = window.location.pathname.includes('/en/');
+            const successMessage = isEnglish ? 
+              'Thank you for your message! We will respond within 24h.' :
+              'Dziękujemy za wiadomość! Odpowiemy w ciągu 24h.';
+            
+            alert(successMessage);
             contactForm.reset();
             // Zamknij modal jeśli jest otwarty
             const modal = document.getElementById('contactModal');
             if(modal) modal.style.display = 'none';
           } else {
-            alert('Wystąpił błąd podczas wysyłania. Spróbuj ponownie później.');
+            // Log detailed error information
+            response.text().then(errorText => {
+              console.error('Formspree error response:', errorText);
+            });
+            
+            const isEnglish = window.location.pathname.includes('/en/');
+            const errorMessage = isEnglish ?
+              'An error occurred while sending. Please try again later or contact us directly at contact@victorymind.ai' :
+              'Wystąpił błąd podczas wysyłania. Spróbuj ponownie później lub skontaktuj się bezpośrednio: contact@victorymind.ai';
+            
+            // Show error with backup option
+            if (confirm(errorMessage + '\n\nChcesz otworzyć formularz backup? / Want to open backup form?')) {
+              const backupPath = isEnglish ? './contact-backup.html' : './contact-backup.html';
+              window.open(backupPath, '_blank');
+            }
           }
         })
-        .catch(() => {
-          alert('Wystąpił błąd podczas wysyłania. Spróbuj ponownie później.');
+        .catch((error) => {
+          console.error('Fetch error:', error);
+          const isEnglish = window.location.pathname.includes('/en/');
+          const errorMessage = isEnglish ?
+            'Network error. Please check your connection or contact us directly at contact@victorymind.ai' :
+            'Błąd sieci. Sprawdź połączenie lub skontaktuj się bezpośrednio: contact@victorymind.ai';
+          
+          // Show error with backup option
+          if (confirm(errorMessage + '\n\nChcesz otworzyć formularz backup? / Want to open backup form?')) {
+            const backupPath = isEnglish ? './contact-backup.html' : './contact-backup.html';
+            window.open(backupPath, '_blank');
+          }
         });
       });
     }
