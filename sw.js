@@ -11,7 +11,6 @@ const urlsToCache = [
   '/Tlo_wersja_2.webp',
   '/logo-new.png',
   '/manifest.json',
-  '/blog/fakty-mity-ai.html',
   '/blog/rss.xml'
 ];
 
