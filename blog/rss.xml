@@ -2,12 +2,12 @@
 <?xml-stylesheet type="text/xsl" href="rss.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog VictoryMind.ai - Fakty i Mity AI</title>
+    <title>Blog VictoryMind.ai</title>
     <link>https://victorymind.ai/blog/</link>
-    <description>Rzetelna wiedza o sztucznej inteligencji, obalanie mitów i praktyczne porady dla biznesu. Nowe wpisy co tydzień.</description>
+    <description>Rzetelna wiedza o sztucznej inteligencji, praktyczne porady i autorskie artykuły AI dla biznesu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Mon, 03 Jun 2025 12:00:00 +0200</lastBuildDate>
-    <pubDate>Mon, 03 Jun 2025 12:00:00 +0200</pubDate>
+    <lastBuildDate>Wed, 04 Jun 2025 12:00:00 +0200</lastBuildDate>
+    <pubDate>Wed, 04 Jun 2025 12:00:00 +0200</pubDate>
     <ttl>1440</ttl>
     <managingEditor>contact@victorymind.ai (Alan Steinbarth)</managingEditor>
     <webMaster>contact@victorymind.ai (Alan Steinbarth)</webMaster>
@@ -18,28 +18,95 @@
     </image>
     <atom:link href="https://victorymind.ai/blog/rss.xml" rel="self" type="application/rss+xml" />
     
-    <!-- Wpis 1: Fakty i Mity AI -->
     <item>
-      <title>🧠 Fakty i Mity AI</title>
-      <link>https://victorymind.ai/blog/fakty-mity-ai.html</link>
-      <description><![CDATA[Poznaj prawdę o sztucznej inteligencji. Obalamy najczęstsze mity i wyjaśniamy, jak AI naprawdę działa w biznesie i codziennym życiu. Przeczytaj o tym, czy AI zastąpi ludzi w pracy, czy rozumie świat jak człowiek, i odkryj faktyczne zastosowania AI w biznesie.]]></description>
-      <pubDate>Mon, 03 Jun 2025 09:00:00 +0200</pubDate>
-      <guid isPermaLink="true">https://victorymind.ai/blog/fakty-mity-ai.html</guid>
-      <category>Podstawy AI</category>
-      <category>Mity</category>
+      <title>Wnioski z przejścia do świata Data Science i AI</title>
+      <link>https://victorymind.ai/blog/2025-01-wnioski-z-przejscia-do-swiata-data-science-i-ai.html</link>
+      <description><![CDATA[Kluczowe wnioski z przejścia do świata Data Science i AI. Praktyczne rady, jak zacząć karierę w AI i Data Science od zera.]]></description>
+      <pubDate>Wed, 01 Jan 2025 09:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-01-wnioski-z-przejscia-do-swiata-data-science-i-ai.html</guid>
+      <category>Kariera</category>
       <author>contact@victorymind.ai (Alan Steinbarth)</author>
     </item>
-    
-    <!-- Template dla kolejnych wpisów:
     <item>
-      <title>[TYTUŁ WPISU]</title>
-      <link>https://victorymind.ai/blog/[SLUG].html</link>
-      <description><![CDATA[[OPIS WPISU]]]></description>
-      <pubDate>[DATA RFC 2822 format]</pubDate>
-      <guid isPermaLink="true">https://victorymind.ai/blog/[SLUG].html</guid>
-      <category>[KATEGORIA]</category>
+      <title>Mała firma bez AI to przegrana? Prawda, którą większość ignoruje</title>
+      <link>https://victorymind.ai/blog/2025-02-mala-firma-bez-ai-to-przegrana.html</link>
+      <description><![CDATA[Czy mała firma bez AI jest skazana na porażkę? Analiza trendów, narzędzi i praktycznych zastosowań sztucznej inteligencji w małym biznesie.]]></description>
+      <pubDate>Sat, 01 Feb 2025 09:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-02-mala-firma-bez-ai-to-przegrana.html</guid>
+      <category>Biznes</category>
       <author>contact@victorymind.ai (Alan Steinbarth)</author>
     </item>
-    -->
+    <item>
+      <title>Rewolucja AI w polskich software house-ach – wnioski z doświadczeń branży</title>
+      <link>https://victorymind.ai/blog/2025-02-rewolucja-ai-w-polskich-software-house-ach.html</link>
+      <description><![CDATA[Wnioski z wdrożeń AI w polskich software house-ach. Praktyczne obserwacje, szanse i wyzwania dla branży IT.]]></description>
+      <pubDate>Sat, 01 Feb 2025 10:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-02-rewolucja-ai-w-polskich-software-house-ach.html</guid>
+      <category>IT</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    <item>
+      <title>Rewolucja sztucznej inteligencji w pracy i edukacji</title>
+      <link>https://victorymind.ai/blog/2025-02-rewolucja-sztucznej-inteligencji-w-pracy-i-edukacji.html</link>
+      <description><![CDATA[Jak AI zmienia pracę i edukację? Praktyczne przykłady, wyzwania i szanse związane z rewolucją sztucznej inteligencji.]]></description>
+      <pubDate>Sat, 01 Feb 2025 11:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-02-rewolucja-sztucznej-inteligencji-w-pracy-i-edukacji.html</guid>
+      <category>Edukacja</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    <item>
+      <title>Zmiana kariery dzięki pasji do programowania</title>
+      <link>https://victorymind.ai/blog/2025-02-zmiana-kariery-dzieki-pasji-do-programowania.html</link>
+      <description><![CDATA[Historia zmiany kariery dzięki pasji do programowania. Praktyczne wskazówki dla osób chcących wejść do branży IT i AI.]]></description>
+      <pubDate>Sat, 01 Feb 2025 12:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-02-zmiana-kariery-dzieki-pasji-do-programowania.html</guid>
+      <category>Kariera</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    <item>
+      <title>Wykorzystanie sztucznej inteligencji w celu pobudzenia kreatywności i rozwoju osobistego</title>
+      <link>https://victorymind.ai/blog/2025-03-wykorzystanie-sztucznej-inteligencji-w-celu-pobudzenia-kreatywnosci-i-rozwoju-osobistego.html</link>
+      <description><![CDATA[Jak AI może wspierać kreatywność i rozwój osobisty? Praktyczne przykłady i inspiracje.]]></description>
+      <pubDate>Sat, 01 Mar 2025 09:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-03-wykorzystanie-sztucznej-inteligencji-w-celu-pobudzenia-kreatywnosci-i-rozwoju-osobistego.html</guid>
+      <category>Rozwój osobisty</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    <item>
+      <title>Agenci AI przejmują Twój biznes - czy za chwilę pracownicy staną się zbędni?</title>
+      <link>https://victorymind.ai/blog/2025-04-agenci-ai-przejmuja-twoj-biznes-czy-pracownicy-zbedni.html</link>
+      <description><![CDATA[Czy agenci AI zastąpią pracowników? Analiza trendów, szans i zagrożeń dla rynku pracy.]]></description>
+      <pubDate>Tue, 01 Apr 2025 09:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-04-agenci-ai-przejmuja-twoj-biznes-czy-pracownicy-zbedni.html</guid>
+      <category>Biznes</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    <item>
+      <title>Cyfrowy Klon Inwestora - czyli Jak Sztuczna Inteligencja Rewolucjonizuje Branżę Nieruchomości</title>
+      <link>https://victorymind.ai/blog/2025-04-cyfrowy-klon-inwestora-ai-nieruchomosci.html</link>
+      <description><![CDATA[Cyfrowy klon inwestora i AI w nieruchomościach. Praktyczne przykłady i przyszłość rynku.]]></description>
+      <pubDate>Tue, 01 Apr 2025 10:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-04-cyfrowy-klon-inwestora-ai-nieruchomosci.html</guid>
+      <category>Nieruchomości</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    <item>
+      <title>Lokalne Modele AI - Przełom w Prywatności i Automatyzacji Biznesu</title>
+      <link>https://victorymind.ai/blog/2025-04-lokalne-modele-ai-prywatnosc-automatyzacja.html</link>
+      <description><![CDATA[Lokalne modele AI – prywatność, bezpieczeństwo i automatyzacja w nowoczesnym biznesie.]]></description>
+      <pubDate>Tue, 01 Apr 2025 11:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-04-lokalne-modele-ai-prywatnosc-automatyzacja.html</guid>
+      <category>Technologia</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    <item>
+      <title>Symbioza z AI - czyli jak Agenci Sztucznej Inteligencji Przekształcają Zarządzanie Firmą</title>
+      <link>https://victorymind.ai/blog/2025-04-symbioza-z-ai-agenci-zarzadzanie-firma.html</link>
+      <description><![CDATA[Symbioza z AI – jak agenci AI zmieniają zarządzanie firmą. Praktyczne przykłady i inspiracje.]]></description>
+      <pubDate>Tue, 01 Apr 2025 12:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-04-symbioza-z-ai-agenci-zarzadzanie-firma.html</guid>
+      <category>Biznes</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
   </channel>
 </rss>
