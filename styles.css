@@ -794,7 +794,7 @@ body.blog-page {
 /* Call-out boxes */
 .blog-callout {
     background: rgba(99, 102, 241, 0.05);
-    border: 1px solid rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(99, 102,241, 0.2);
     border-left: 4px solid #6366f1;
     padding: 1.5rem;
     border-radius: 12px;
@@ -1082,6 +1082,23 @@ body.blog-page {
     .blog-article h2 {
         font-size: 1.4rem;
     }
+}
+
+/* --- DODANE: Wyśrodkowanie tylko dla strony Fakty i Mity AI --- */
+.blog-cta-section.centered-fakty-mity,
+.blog-author-box.centered-fakty-mity,
+.blog-footer.centered-fakty-mity .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Dla stopki, by linki były wyśrodkowane */
+.blog-footer.centered-fakty-mity .footer-content p {
+    text-align: center;
+    width: 100%;
 }
 
 /* Animacje */
