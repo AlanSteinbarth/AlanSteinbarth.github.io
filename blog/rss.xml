@@ -6,8 +6,8 @@
     <link>https://victorymind.ai/blog/</link>
     <description>Rzetelna wiedza o sztucznej inteligencji, praktyczne porady i autorskie artykuły AI dla biznesu.</description>
     <language>pl-PL</language>
-    <lastBuildDate>Wed, 04 Jun 2025 12:00:00 +0200</lastBuildDate>
-    <pubDate>Wed, 04 Jun 2025 12:00:00 +0200</pubDate>
+    <lastBuildDate>Thu, 05 Jun 2025 15:00:00 +0200</lastBuildDate>
+    <pubDate>Thu, 05 Jun 2025 15:00:00 +0200</pubDate>
     <ttl>1440</ttl>
     <managingEditor>contact@victorymind.ai (Alan Steinbarth)</managingEditor>
     <webMaster>contact@victorymind.ai (Alan Steinbarth)</webMaster>
@@ -25,6 +25,24 @@
       <pubDate>Sun, 01 Jun 2025 09:00:00 +0200</pubDate>
       <guid isPermaLink="true">https://victorymind.ai/blog/2025-06-fakty-i-mity-ai.html</guid>
       <category>AI</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    <item>
+      <title>Nowy zawód w erze sztucznej inteligencji – dlaczego warto się nim zainteresować?</title>
+      <link>https://victorymind.ai/blog/2025-05-nowy-zawod-data-scientist.html</link>
+      <description><![CDATA[Poznaj zawód data scientist - złoty bilet w erze AI. Jak zostać specjalistą ds. nauki danych i dlaczego to jedna z najważniejszych profesji przyszłości.]]></description>
+      <pubDate>Fri, 15 May 2025 10:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-05-nowy-zawod-data-scientist.html</guid>
+      <category>Kariera w AI</category>
+      <author>contact@victorymind.ai (Alan Steinbarth)</author>
+    </item>
+    <item>
+      <title>Jeśli nadal projektujesz bez AI, właśnie się skazujesz na porażkę!</title>
+      <link>https://victorymind.ai/blog/2025-05-projektowanie-bez-ai-to-porazka.html</link>
+      <description><![CDATA[Praktyczne sposoby łączenia grafiki z sztuczną inteligencją. Automatyzacja procesów projektowych, generowanie treści i przyszłość designu w erze AI.]]></description>
+      <pubDate>Wed, 10 May 2025 09:00:00 +0200</pubDate>
+      <guid isPermaLink="true">https://victorymind.ai/blog/2025-05-projektowanie-bez-ai-to-porazka.html</guid>
+      <category>AI w grafice</category>
       <author>contact@victorymind.ai (Alan Steinbarth)</author>
     </item>
     <item>
