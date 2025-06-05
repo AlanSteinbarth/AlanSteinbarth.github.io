@@ -19,7 +19,7 @@
     <atom:link href="https://victorymind.ai/blog/rss.xml" rel="self" type="application/rss+xml" />
     <!-- Najnowsze wpisy blogowe, od najnowszego do najstarszego -->
     <item>
-      <title>Fakty i Mity AI</title>
+      <title>Fakty i Mity o AI</title>
       <link>https://victorymind.ai/blog/2025-06-fakty-i-mity-ai.html</link>
       <description><![CDATA[Poznaj prawdę o sztucznej inteligencji. Obalamy najczęstsze mity i wyjaśniamy, jak AI naprawdę działa w biznesie i codziennym życiu.]]></description>
       <pubDate>Sun, 01 Jun 2025 09:00:00 +0200</pubDate>
