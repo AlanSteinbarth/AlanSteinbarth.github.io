@@ -161,7 +161,8 @@ function hideCookieBanner() {
         }
         // AJAX submit with improved error handling
         const formData = new FormData(contactForm);
-        // NIE dodawaj _replyto! Formspree wymaga tylko 'email'.
+        // Dodanie wymaganego pola _replyto dla Formspree
+        formData.append('_replyto', formData.get('email'));
         // Add anti-spam measures
         if (!formData.get('_gotcha')) {
           formData.append('_gotcha', '');
