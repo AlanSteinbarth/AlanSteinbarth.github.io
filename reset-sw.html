@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Service Worker - VictoryMind.ai</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4285f4;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        button {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #3367d6;
+        }
+        #status {
+            margin-top: 20px;
+        }
+        .instructions {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reset Service Worker - VictoryMind.ai</h1>
+    
+    <div class="info-box">
+        <p>Ta strona służy do resetowania Service Workera i czyszczenia pamięci podręcznej przeglądarki dla strony VictoryMind.ai</p>
+        <p>Użyj jej, gdy napotkasz problemy z wyświetlaniem najnowszych zmian na stronie.</p>
+    </div>
+
+    <button id="resetSW">Zresetuj Service Worker i wyczyść pamięć podręczną</button>
+    <div id="status"></div>
+
+    <div class="instructions">
+        <h3>Instrukcje dodatkowe:</h3>
+        <p>Jeśli nadal masz problemy po resetowaniu:</p>
+        <ol>
+            <li>Zamknij wszystkie karty z witryną VictoryMind.ai</li>
+            <li>Otwórz Narzędzia deweloperskie (F12 lub Cmd+Option+I na Mac)</li>
+            <li>Przejdź do zakładki Application > Storage</li>
+            <li>Kliknij "Clear site data"</li>
+            <li>Odśwież stronę (Ctrl+F5 lub Cmd+Shift+R na Mac)</li>
+        </ol>
+    </div>
+
+    <script>
+        document.getElementById('resetSW').addEventListener('click', function() {
+            const statusEl = document.getElementById('status');
+            
+            if ('serviceWorker' in navigator) {
+                statusEl.innerHTML = '<p>Trwa resetowanie Service Worker...</p>';
+                
+                // Wyrejestrowanie Service Workera
+                navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                    if (registrations.length === 0) {
+                        statusEl.innerHTML += '<p>Nie znaleziono żadnych zarejestrowanych Service Workerów.</p>';
+                    } else {
+                        let count = 0;
+                        for(let registration of registrations) {
+                            registration.unregister();
+                            count++;
+                        }
+                        statusEl.innerHTML += `<p class="success">Pomyślnie wyrejestrowano ${count} Service Worker(ów).</p>`;
+                    }
+                    
+                    // Czyszczenie pamięci podręcznej
+                    return caches.keys();
+                }).then(function(cacheNames) {
+                    if (cacheNames.length === 0) {
+                        statusEl.innerHTML += '<p>Nie znaleziono żadnych pamięci podręcznych.</p>';
+                    } else {
+                        return Promise.all(
+                            cacheNames.map(function(cacheName) {
+                                return caches.delete(cacheName).then(function() {
+                                    return cacheName;
+                                });
+                            })
+                        ).then(function(deletedCaches) {
+                            statusEl.innerHTML += `<p class="success">Pomyślnie wyczyszczono pamięć podręczną: ${deletedCaches.join(', ')}.</p>`;
+                        });
+                    }
+                }).then(function() {
+                    statusEl.innerHTML += '<p class="success">Proces czyszczenia zakończony! Możesz teraz bezpiecznie wrócić do <a href="index.html">strony głównej</a>.</p>';
+                }).catch(function(err) {
+                    statusEl.innerHTML += `<p class="error">Wystąpił błąd podczas resetowania: ${err}</p>`;
+                });
+            } else {
+                statusEl.innerHTML = '<p class="error">Twoja przeglądarka nie obsługuje Service Worker.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
