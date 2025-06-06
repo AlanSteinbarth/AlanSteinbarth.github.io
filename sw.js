@@ -1,7 +1,7 @@
 // Service Worker dla VictoryMind.ai
 // Optymalizuje wydajność poprzez cache'owanie zasobów
 
-const CACHE_NAME = 'victorymind-v1.5';
+const CACHE_NAME = 'victorymind-v2.0';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -9,7 +9,8 @@ const urlsToCache = [
   '/styles.css',
   '/main.js',
   '/Tlo_wersja_2.webp',
-  '/logo-new.png',
+  '/logo-new.webp',
+  '/Logo2.webp',
   '/manifest.json',
   '/blog/rss.xml'
 ];
