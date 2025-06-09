@@ -32,8 +32,8 @@
     <link rel="icon" type="image/png" href="../assets/images/favicon.png?v=2">
     
     <!-- Stylesheets -->
-    <link rel="preload" href="../assets/css/styles.css?v=20250609-2230" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="../assets/css/styles.css?v=20250609-2230"></noscript>
+    <link rel="preload" href="../assets/css/styles.css?v=20250610-apple" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../assets/css/styles.css?v=20250610-apple"></noscript>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H59TGC7RZH"></script>
@@ -74,58 +74,62 @@
 </head>
 
 <body>
-    <!-- Navigation -->
+    <!-- Apple-style Navigation -->
     <nav class="nav">
         <div class="nav-container">
             <a href="../index.html" class="nav-logo">
                 <img src="../assets/images/Osateczne logo.png" alt="VictoryMind.ai Logo" class="nav-logo-img">
             </a>
-            <div class="nav-menu">
-                <a href="../index.html" class="nav-link">Strona główna</a>
-                <a href="../index.html#services" class="nav-link">Usługi</a>
-                <a href="../index.html#about" class="nav-link">O mnie</a>
-                <a href="../index.html#contact" class="nav-link nav-link--cta">Kontakt</a>
-            </div>
-            <div class="nav-mobile-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-links">
+                <div class="nav-links-inner">
+                    <a href="../index.html" class="nav-link">Strona główna</a>
+                    <a href="../index.html#services" class="nav-link">Usługi</a>
+                    <a href="../index.html#about" class="nav-link">O mnie</a>
+                    <a href="../index.html#contact" class="nav-link">Kontakt</a>
+                </div>
+                <a href="../en/index.html" class="nav-link nav-link--lang">EN</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero hero--blog">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Blog <span class="gradient-text">VictoryMind.ai</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Rzetelna wiedza o sztucznej inteligencji.<br>
-                    Obalamy mity, wyjaśniamy fakty.
-                </p>
-                <div class="hero-actions">
-                    <a href="rss.xml" class="btn btn--secondary btn--modern" target="_blank" rel="noopener">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248S0 22.546 0 20.752s1.456-3.248 3.252-3.248 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"/>
-                        </svg>
-                        Subskrybuj RSS
-                    </a>
-                </div>
+    <!-- Apple-style Hero Section -->
+    <section class="hero blog-hero">
+        <video class="hero-bg" autoplay muted loop playsinline>
+            <source src="../assets/videos/brain-ai-loop-1080p.mp4" type="video/mp4">
+            <source src="../assets/videos/brain-ai-loop.webm" type="video/webm">
+            <source src="../assets/videos/brain-ai-loop.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">Blog <span class="gradient-text">VictoryMind.ai</span></h1>
+            <p class="hero-subtitle fade-in">
+                Rzetelna wiedza o sztucznej inteligencji.<br>
+                Obalamy mity, wyjaśniamy fakty.
+            </p>
+            <div class="hero-cta fade-in">
+                <a href="rss.xml" class="btn btn-primary" target="_blank" rel="noopener">
+                    📡 Subskrybuj RSS
+                </a>
+                <a href="../index.html#contact" class="btn btn-secondary">Umów konsultację</a>
             </div>
         </div>
+        <div class="scroll-indicator"></div>
     </section>
 
-    <!-- Blog Grid -->
-    <section class="blog-grid">
-        <div class="container">
+    <!-- Apple-style Blog Grid Section -->
+    <section class="section blog-featured">
+        <div class="section-header">
+            <h2 class="section-title">Najnowsze wpisy</h2>
+            <p class="section-subtitle">Praktyczna wiedza o AI dla Twojego biznesu</p>
+        </div>
+        
+        <div class="blog-grid">
             <!-- Featured Article -->
-            <article class="blog-card blog-card--featured">
+            <article class="blog-card blog-card--featured fade-in">
                 <div class="blog-card-content">
                     <div class="blog-meta">
                         <span class="blog-category">Edukacja AI</span>
-                        <time class="blog-date" datetime="2025-01-06">6 stycznia 2025</time>
+                        <time class="blog-date" datetime="2025-06-01">6 czerwca 2025</time>
                     </div>
                     <h2 class="blog-title">
                         <a href="fakty-mity-ai.html">Fakty i Mity o AI – Poznaj prawdę o sztucznej inteligencji</a>
@@ -133,19 +137,19 @@
                     <p class="blog-excerpt">
                         Poznaj prawdę o sztucznej inteligencji. Obalamy najczęstsze mity i wyjaśniamy, jak AI naprawdę działa w biznesie i codziennym życiu.
                     </p>
-                    <a href="fakty-mity-ai.html" class="blog-read-more">
-                        Czytaj więcej <span>→</span>
+                    <a href="fakty-mity-ai.html" class="btn btn-ghost">
+                        Czytaj więcej →
                     </a>
                 </div>
             </article>
 
-            <!-- Recent Articles -->
-            <div class="blog-grid-container">
-                <article class="blog-card">
+            <!-- Recent Articles Grid -->
+            <div class="blog-grid-recent">
+                <article class="blog-card fade-in">
                     <div class="blog-card-content">
                         <div class="blog-meta">
                             <span class="blog-category">Projektowanie</span>
-                            <time class="blog-date" datetime="2025-01-05">5 maja 2025</time>
+                            <time class="blog-date" datetime="2025-05-01">5 maja 2025</time>
                         </div>
                         <h3 class="blog-title">
                             <a href="2025-05-projektowanie-bez-ai-to-porazka.html">Projektowanie bez AI to porażka</a>
@@ -159,11 +163,11 @@
                     </div>
                 </article>
 
-                <article class="blog-card">
+                <article class="blog-card fade-in">
                     <div class="blog-card-content">
                         <div class="blog-meta">
                             <span class="blog-category">Kariera</span>
-                            <time class="blog-date" datetime="2025-01-05">5 maja 2025</time>
+                            <time class="blog-date" datetime="2025-05-01">5 maja 2025</time>
                         </div>
                         <h3 class="blog-title">
                             <a href="2025-05-nowy-zawod-data-scientist.html">Nowy zawód: Data Scientist</a>
@@ -177,11 +181,11 @@
                     </div>
                 </article>
 
-                <article class="blog-card">
+                <article class="blog-card fade-in">
                     <div class="blog-card-content">
                         <div class="blog-meta">
                             <span class="blog-category">Biznes AI</span>
-                            <time class="blog-date" datetime="2025-01-04">4 kwietnia 2025</time>
+                            <time class="blog-date" datetime="2025-04-01">4 kwietnia 2025</time>
                         </div>
                         <h3 class="blog-title">
                             <a href="2025-04-symbioza-z-ai-agenci-zarzadzanie-firma.html">Symbioza z AI: agenci w zarządzaniu firmą</a>
@@ -195,11 +199,11 @@
                     </div>
                 </article>
 
-                <article class="blog-card">
+                <article class="blog-card fade-in">
                     <div class="blog-card-content">
                         <div class="blog-meta">
                             <span class="blog-category">Prywatność</span>
-                            <time class="blog-date" datetime="2025-01-04">4 kwietnia 2025</time>
+                            <time class="blog-date" datetime="2025-04-01">4 kwietnia 2025</time>
                         </div>
                         <h3 class="blog-title">
                             <a href="2025-04-lokalne-modele-ai-prywatnosc-automatyzacja.html">Lokalne modele AI: prywatność + automatyzacja</a>
@@ -213,11 +217,11 @@
                     </div>
                 </article>
 
-                <article class="blog-card">
+                <article class="blog-card fade-in">
                     <div class="blog-card-content">
                         <div class="blog-meta">
                             <span class="blog-category">Nieruchomości</span>
-                            <time class="blog-date" datetime="2025-01-04">4 kwietnia 2025</time>
+                            <time class="blog-date" datetime="2025-04-01">4 kwietnia 2025</time>
                         </div>
                         <h3 class="blog-title">
                             <a href="2025-04-cyfrowy-klon-inwestora-ai-nieruchomosci.html">Cyfrowy klon inwestora AI w nieruchomościach</a>
@@ -231,11 +235,11 @@
                     </div>
                 </article>
 
-                <article class="blog-card">
+                <article class="blog-card fade-in">
                     <div class="blog-card-content">
                         <div class="blog-meta">
                             <span class="blog-category">Automatyzacja</span>
-                            <time class="blog-date" datetime="2025-01-04">4 kwietnia 2025</time>
+                            <time class="blog-date" datetime="2025-04-01">4 kwietnia 2025</time>
                         </div>
                         <h3 class="blog-title">
                             <a href="2025-04-agenci-ai-przejmuja-twoj-biznes-czy-pracownicy-zbedni.html">Agenci AI przejmują Twój biznes – czy pracownicy zbędni?</a>
@@ -252,36 +256,26 @@
         </div>
     </section>
 
-    <!-- Newsletter CTA -->
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2 class="newsletter-title">Bądź na bieżąco z AI</h2>
-                <p class="newsletter-description">
-                    Otrzymuj najnowsze wpisy o sztucznej inteligencji bezpośrednio na swoją skrzynkę. 
-                    Żadnego spamu, tylko rzetelna wiedza.
-                </p>
-                <div class="newsletter-form">
-                    <a href="../index.html#contact" class="btn btn--primary btn--modern">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
-                            <line x1="12" y1="22.08" x2="12" y2="12"/>
-                        </svg>
-                        Umów konsultację AI
-                    </a>
-                    <a href="rss.xml" class="btn btn--secondary btn--modern" target="_blank" rel="noopener">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M6.503 20.752c0 1.794-1.456 3.248-3.251 3.248S0 22.546 0 20.752s1.456-3.248 3.252-3.248 3.251 1.454 3.251 3.248zm-6.503-12.572v4.811c6.05.062 10.96 4.966 11.022 11.009h4.817c-.062-8.71-7.118-15.758-15.839-15.82zm0-3.368c10.58.046 19.152 8.594 19.183 19.188h4.817c-.03-13.231-10.755-23.954-24-24v4.812z"/>
-                        </svg>
-                        Subskrybuj RSS
-                    </a>
-                </div>
+    <!-- Apple-style Newsletter CTA -->
+    <section class="section newsletter-section">
+        <div class="newsletter-hero">
+            <h2 class="newsletter-title">Bądź na bieżąco z AI</h2>
+            <p class="newsletter-description">
+                Otrzymuj najnowsze wpisy o sztucznej inteligencji bezpośrednio na swoją skrzynkę. 
+                Żadnego spamu, tylko rzetelna wiedza.
+            </p>
+            <div class="newsletter-actions">
+                <a href="../index.html#contact" class="btn btn-primary">
+                    ✉️ Umów konsultację AI
+                </a>
+                <a href="rss.xml" class="btn btn-secondary" target="_blank" rel="noopener">
+                    📡 Subskrybuj RSS
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Apple-style Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-links">
@@ -307,21 +301,9 @@
                         </svg>
                     </a>
                     <a href="https://twitter.com/intent/tweet?text=VictoryMind.ai - Sztuczna Inteligencja dla Twojego Biznesu&url=https://victorymind.ai/"
-                       target="_blank" rel="noopener" class="social-btn twitter" title="Udostępnij na Twitterze">
+                       target="_blank" rel="noopener" class="social-btn twitter" title="Udostępnij na X (Twitter)">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.youtube.com/@VictoryMindAI"
-                       target="_blank" rel="noopener" class="social-btn youtube" title="YouTube VictoryMind.ai">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/victorymindai/" 
-                       target="_blank" rel="noopener" class="social-btn instagram" title="Instagram VictoryMind.ai">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                         </svg>
                     </a>
                     <a href="rss.xml" target="_blank" rel="noopener" class="social-btn" title="RSS Feed">
@@ -343,19 +325,24 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
+    <!-- Scripts -->
+    <script src="../assets/js/main-apple.js"></script>
+
+    <!-- Native Share Function -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toggle = document.querySelector('.nav-mobile-toggle');
-            const menu = document.querySelector('.nav-menu');
-            
-            if (toggle && menu) {
-                toggle.addEventListener('click', function() {
-                    menu.classList.toggle('nav-menu--open');
-                    toggle.classList.toggle('nav-mobile-toggle--open');
+        window.shareNative = function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Blog VictoryMind.ai - Fakty i Mity o AI',
+                    text: 'Rzetelna wiedza o sztucznej inteligencji, obalanie mitów i praktyczne porady dla biznesu',
+                    url: window.location.href
                 });
+            } else {
+                // Fallback to clipboard
+                navigator.clipboard.writeText(window.location.href);
+                alert('Link skopiowany do schowka!');
             }
-        });
+        };
     </script>
 </body>
 </html>
