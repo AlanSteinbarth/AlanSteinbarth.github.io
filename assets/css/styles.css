@@ -111,8 +111,8 @@ body {
 }
 
 .nav-logo-img {
-  width: 28px;
-  height: 28px;
+  height: 40px;
+  width: auto;
   object-fit: contain;
 }
 
