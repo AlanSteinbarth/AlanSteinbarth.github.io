@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPER TEST - Minimal Padding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        
+        .test-nav {
+            background: #333;
+            border: 3px solid red; /* Czerwona ramka żeby zobaczyć dokładnie gdzie jest */
+        }
+        
+        .test-container {
+            background: #555;
+            border: 2px solid yellow; /* Żółta ramka dla kontenera */
+            padding: 0px 20px !important; /* ZERO padding góra/dół, !important żeby na pewno */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .test-logo {
+            background: blue;
+            color: white;
+            padding: 5px;
+            margin-left: -80px;
+        }
+        
+        .test-menu {
+            background: green;
+            color: white;
+            padding: 5px;
+        }
+        
+        .content {
+            height: 300px;
+            background: red;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-nav">
+        <div class="test-container">
+            <div class="test-logo">LOGO (przesunięte w lewo -80px)</div>
+            <div class="test-menu">MENU</div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div>PADDING POWINIEN BYĆ ZERO GÓRA/DÓŁ - czerwona ramka powinna być blisko żółtej</div>
+    </div>
+</body>
+</html>

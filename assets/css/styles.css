@@ -89,7 +89,7 @@ body {
 .nav-container {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0px 22px;
+  padding: 0px 22px !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,16 +112,25 @@ body {
 }
 
 .nav-logo-img {
-  height: 280px;
-  max-width: 600px;
+  height: 100px;
+  max-width: 300px;
   width: auto;
   object-fit: contain;
 }
 
 .nav-links {
   display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+}
+
+.nav-links-inner {
+  display: flex;
   gap: 32px;
   align-items: center;
+  margin: 0 auto;
 }
 
 .nav-link {
@@ -131,8 +140,17 @@ body {
   font-weight: 700;
   transition: var(--transition-fast);
   position: relative;
-  padding: 16px 20px;
-  border-radius: var(--radius-lg);
+  padding: 0 22px;
+  border-radius: 18px;
+  height: 56px;
+  line-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link:last-child {
+  margin-right: -22px;
 }
 
 .nav-link:hover {
@@ -143,16 +161,24 @@ body {
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -4px;
-  left: 0;
+  bottom: 8px;
+  left: 22px;
   width: 0;
-  height: 1px;
+  height: 2px;
   background: var(--color-accent-blue);
   transition: var(--transition-base);
+  border-radius: 2px;
 }
 
 .nav-link:hover::after {
-  width: 100%;
+  width: calc(100% - 44px);
+}
+
+.nav-link--lang {
+  position: absolute;
+  right: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 /* ===== HERO SECTION - Apple MacBook Pro Style ===== */
@@ -872,6 +898,18 @@ body {
   .social-buttons {
     gap: var(--space-xs);
   }
+  
+  .nav-link--lang {
+    position: static;
+    right: auto;
+    margin-left: auto;
+    margin-right: 0;
+    order: 2;
+  }
+  .nav-links-inner {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -885,5 +923,17 @@ body {
   
   .service-card {
     padding: var(--space-lg);
+  }
+  
+  .nav-link--lang {
+    position: static;
+    right: auto;
+    margin-left: auto;
+    margin-right: 0;
+    order: 2;
+  }
+  .nav-links-inner {
+    width: 100%;
+    justify-content: center;
   }
 }
