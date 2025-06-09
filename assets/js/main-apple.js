@@ -393,6 +393,152 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // ========== APPLE-STYLE INTERACTIVE TABS ==========
+    function initShowcaseTabs() {
+        const tabs = document.querySelectorAll('.showcase-tab');
+        const content = document.querySelector('.showcase-content');
+        
+        // Detect language
+        const isEnglish = document.documentElement.lang === 'en';
+        
+        const tabContent = isEnglish ? {
+            automation: {
+                title: 'Business process automation',
+                description: 'Our AI solutions automate routine tasks, allowing your team to focus on strategic decisions. Intelligent algorithms learn from data and adapt processes in real-time.',
+                features: [
+                    'Automatic document processing',
+                    'Intelligent workflows',
+                    'Predictive resource planning'
+                ]
+            },
+            analytics: {
+                title: 'Advanced data analytics',
+                description: 'We transform raw data into actionable insights. Our analytics tools use machine learning to discover hidden patterns and predict business trends.',
+                features: [
+                    'Predictive modeling',
+                    'Real-time analytics',
+                    'Interactive dashboards'
+                ]
+            },
+            'ai-models': {
+                title: 'Dedicated artificial intelligence models',
+                description: 'We create and deploy personalized AI models tailored to your business specifics. From NLP to computer vision - we build solutions that really work.',
+                features: [
+                    'Custom AI models',
+                    'Model fine-tuning',
+                    'Enterprise deployment'
+                ]
+            }
+        } : {
+            automation: {
+                title: 'Automatyzacja procesów biznesowych',
+                description: 'Nasze rozwiązania AI automatyzują rutynowe zadania, pozwalając zespołowi skupić się na strategicznych decyzjach. Inteligentne algorytmy uczą się z danych i dostosowują procesy w czasie rzeczywistym.',
+                features: [
+                    'Automatyczne przetwarzanie dokumentów',
+                    'Inteligentne workflow',
+                    'Predykcyjne planowanie zasobów'
+                ]
+            },
+            analytics: {
+                title: 'Zaawansowana analityka danych',
+                description: 'Przekształcamy surowe dane w actionable insights. Nasze narzędzia analityczne wykorzystują machine learning do odkrywania ukrytych wzorców i przewidywania trendów biznesowych.',
+                features: [
+                    'Predykcyjne modelowanie',
+                    'Real-time analytics',
+                    'Interaktywne dashboardy'
+                ]
+            },
+            'ai-models': {
+                title: 'Dedykowane modele sztucznej inteligencji',
+                description: 'Tworzymy i wdrażamy spersonalizowane modele AI dopasowane do specyfiki Twojego biznesu. Od NLP po computer vision - budujemy rozwiązania które rzeczywiście działają.',
+                features: [
+                    'Custom AI models',
+                    'Model fine-tuning',
+                    'Enterprise deployment'
+                ]
+            }
+        };
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active from all tabs
+                tabs.forEach(t => t.classList.remove('active'));
+                
+                // Add active to clicked tab
+                tab.classList.add('active');
+                
+                // Get tab data
+                const tabKey = tab.dataset.tab;
+                const data = tabContent[tabKey];
+                
+                // Update content with smooth transition
+                if (content && data) {
+                    content.style.opacity = '0.5';
+                    content.setAttribute('data-active', tabKey);
+                    
+                    setTimeout(() => {
+                        const title = content.querySelector('.showcase-title');
+                        const description = content.querySelector('.showcase-description');
+                        const featureList = content.querySelector('.feature-list');
+                        
+                        if (title) title.textContent = data.title;
+                        if (description) description.textContent = data.description;
+                        
+                        if (featureList) {
+                            featureList.innerHTML = data.features
+                                .map(feature => `<li>${feature}</li>`)
+                                .join('');
+                        }
+                        
+                        content.style.opacity = '1';
+                    }, 200);
+                }
+            });
+        });
+    }
+
+    // ========== ENHANCED STAT ANIMATIONS ==========
+    function animateStats() {
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const finalText = element.textContent;
+                    
+                    // Extract number and suffix
+                    const match = finalText.match(/^(\d+(?:\.\d+)?)(.*)/);
+                    if (match) {
+                        const finalNumber = parseFloat(match[1]);
+                        const suffix = match[2];
+                        
+                        // Animate from 0 to final number
+                        let currentNumber = 0;
+                        const increment = finalNumber / 60; // 1 second at 60fps
+                        
+                        const animate = () => {
+                            currentNumber += increment;
+                            if (currentNumber >= finalNumber) {
+                                element.textContent = finalText;
+                                return;
+                            }
+                            
+                            element.textContent = Math.floor(currentNumber) + suffix;
+                            requestAnimationFrame(animate);
+                        };
+                        
+                        animate();
+                    }
+                    
+                    observer.unobserve(element);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        statNumbers.forEach(stat => observer.observe(stat));
+    }
+
     // ========== INITIALIZE ALL EFFECTS ==========
     initScrollAnimations();
     initParallaxEffects();
@@ -401,6 +547,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initCardEffects();
     initModalSystem();
     initFormEnhancements();
+    initShowcaseTabs();
+    animateStats();
     optimizePerformance();
     
     console.log('🍎 Apple-style effects initialized!');
