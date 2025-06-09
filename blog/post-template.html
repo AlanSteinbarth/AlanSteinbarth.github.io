@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYTUŁ WPISU | Blog VictoryMind.ai</title>
+    <meta name="description" content="OPIS WPISU">
+    <link rel="canonical" href="https://victorymind.ai/blog/NAZWA-PLIKU.html">
+    <link rel="alternate" hreflang="pl" href="https://victorymind.ai/blog/NAZWA-PLIKU.html" />
+    <link rel="alternate" hreflang="en" href="https://victorymind.ai/en/" />
+    <link rel="alternate" type="application/rss+xml" title="Blog VictoryMind.ai RSS" href="https://victorymind.ai/blog/rss.xml" />
+    <link rel="icon" type="image/png" href="../favicon.png?v=2">
+    <link rel="stylesheet" href="../styles.css">
+    <meta property="og:title" content="TYTUŁ WPISU | Blog VictoryMind.ai">
+    <meta property="og:description" content="OPIS WPISU">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://victorymind.ai/blog/NAZWA-PLIKU.html">
+    <meta property="og:image" content="https://victorymind.ai/logo-new.png">
+    <meta property="og:site_name" content="VictoryMind.ai">
+    <meta property="og:locale" content="pl_PL">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TYTUŁ WPISU | Blog VictoryMind.ai">
+    <meta name="twitter:description" content="OPIS WPISU">
+    <meta name="twitter:image" content="https://victorymind.ai/logo-new.png">
+    
+    <style>
+        /* Style specyficzne dla pojedynczego wpisu */
+        .post-header {
+            background: linear-gradient(135deg, var(--color-bg-secondary) 0%, var(--color-bg-tertiary) 100%);
+            padding: 120px 0 40px;
+            text-align: center;
+        }
+        
+        .post-title {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 700;
+            max-width: 800px;
+            margin: 0 auto 16px;
+            padding: 0 24px;
+            background: linear-gradient(135deg, var(--color-accent-blue) 0%, var(--color-accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            padding: 0 24px;
+        }
+        
+        .post-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-text-secondary);
+            font-size: 16px;
+        }
+        
+        .post-meta-item svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+        
+        .post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+            color: var(--color-text-primary);
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        
+        .post-content h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-top: 48px;
+            margin-bottom: 24px;
+            color: var(--color-text-primary);
+        }
+        
+        .post-content h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--color-text-primary);
+        }
+        
+        .post-content p {
+            margin-bottom: 20px;
+            color: var(--color-text-secondary);
+        }
+        
+        .post-content ul, 
+        .post-content ol {
+            margin-bottom: 24px;
+            padding-left: 24px;
+            color: var(--color-text-secondary);
+        }
+        
+        .post-content li {
+            margin-bottom: 8px;
+        }
+        
+        .post-content blockquote {
+            border-left: 4px solid var(--color-accent-blue);
+            padding: 16px 24px;
+            margin: 24px 0;
+            background: var(--color-bg-tertiary);
+            border-radius: var(--radius-md);
+            font-style: italic;
+            color: var(--color-text-secondary);
+        }
+        
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            margin: 24px 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .post-content code {
+            background: var(--color-bg-tertiary);
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9em;
+        }
+        
+        .post-content pre {
+            background: var(--color-bg-tertiary);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+        
+        .post-content pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--color-text-primary);
+        }
+        
+        .post-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            padding: 0 24px;
+        }
+        
+        .post-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: var(--radius-full);
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+        
+        .post-action.primary {
+            background: var(--color-accent-blue);
+            color: white;
+        }
+        
+        .post-action.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-text-primary);
+        }
+        
+        .post-action:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        
+        .fakt {
+            color: var(--color-success);
+            font-weight: 600;
+            display: inline-block;
+            padding: 0 6px;
+            border-radius: var(--radius-sm);
+            background: rgba(48, 209, 88, 0.1);
+        }
+        
+        .mit {
+            color: var(--color-error);
+            font-weight: 600;
+            display: inline-block;
+            padding: 0 6px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 59, 48, 0.1);
+        }
+        
+        /* Nawigacja między postami */
+        .post-navigation {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        
+        @media (max-width: 640px) {
+            .post-navigation {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .post-navigation-item {
+            padding: 20px;
+            background: var(--color-bg-tertiary);
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            transition: var(--transition-fast);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .post-navigation-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .post-navigation-direction {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-text-tertiary);
+            margin-bottom: 8px;
+            display: block;
+        }
+        
+        .post-navigation-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .post-navigation-previous .post-navigation-direction {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .post-navigation-next {
+            text-align: right;
+        }
+        
+        .post-navigation-next .post-navigation-direction {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 4px;
+        }
+        
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .post-meta {
+                gap: 16px;
+            }
+            
+            .post-content {
+                font-size: 16px;
+            }
+            
+            .post-content h2 {
+                font-size: 24px;
+                margin-top: 40px;
+            }
+            
+            .post-content h3 {
+                font-size: 20px;
+                margin-top: 28px;
+            }
+        }
+    </style>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H59TGC7RZH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-H59TGC7RZH');
+    </script>
+</head>
+<body>
+    <!-- Nawigacja -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../Logo.png" alt="VictoryMind.ai Logo" class="nav-logo-img">
+                VictoryMind.ai
+            </a>
+            <div class="nav-links">
+                <a href="../index.html#services" class="nav-link">Usługi</a>
+                <a href="../index.html#process" class="nav-link">Proces</a>
+                <a href="../index.html#projects" class="nav-link">Projekty</a>
+                <a href="../index.html#contact" class="nav-link">Kontakt</a>
+                <a href="../en/index.html" class="nav-link">EN</a>
+                <a href="index.html" class="nav-link active">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Nagłówek wpisu -->
+    <header class="post-header">
+        <h1 class="post-title">TYTUŁ WPISU</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                    <path fill="currentColor" d="M7,11H9V13H7V11M21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H6V1H8V3H16V1H18V3H19A2,2 0 0,1 21,5M19,5H5V7H19V5M19,19V9H5V19H19M15,13H17V11H15V13M11,13H13V11H11V13Z"/>
+                </svg>
+                MIESIĄC ROK
+            </span>
+            <span class="post-meta-item">
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                    <path fill="currentColor" d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z"/>
+                </svg>
+                AUTOR WPISU
+            </span>
+            <span class="post-meta-item">
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                    <path fill="currentColor" d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z"/>
+                </svg>
+                CZAS CZYTANIA minut
+            </span>
+        </div>
+    </header>
+
+    <!-- Treść wpisu -->
+    <article class="post-content">
+        <p>WPROWADZENIE/WSTĘP DO ARTYKUŁU</p>
+
+        <h2>NAGŁÓWEK SEKCJI</h2>
+        <p>TREŚĆ PARAGRAFU</p>
+        
+        <h3>PODTYTUŁ SEKCJI</h3>
+        <p>TREŚĆ PARAGRAFU</p>
+        
+        <ul>
+            <li>ELEMENT LISTY</li>
+            <li>ELEMENT LISTY</li>
+        </ul>
+        
+        <blockquote>
+            CYTAT LUB WAŻNA INFORMACJA
+        </blockquote>
+        
+        <h2>KOLEJNA SEKCJA</h2>
+        <p>TREŚĆ PARAGRAFU</p>
+        
+        <!-- Akcje pod wpisem -->
+        <div class="post-actions">
+            <a href="index.html" class="post-action secondary">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                Wróć do bloga
+            </a>
+            <a href="../index.html" class="post-action secondary">
+                Strona główna
+            </a>
+        </div>
+    </article>
+    
+    <!-- Nawigacja między wpisami -->
+    <div class="post-navigation">
+        <a href="POPRZEDNI-POST.html" class="post-navigation-item post-navigation-previous">
+            <span class="post-navigation-direction">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                Poprzedni wpis
+            </span>
+            <div class="post-navigation-title">TYTUŁ POPRZEDNIEGO WPISU</div>
+        </a>
+        
+        <a href="NASTĘPNY-POST.html" class="post-navigation-item post-navigation-next">
+            <span class="post-navigation-direction">
+                Następny wpis
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+            </span>
+            <div class="post-navigation-title">TYTUŁ NASTĘPNEGO WPISU</div>
+        </a>
+    </div>
+
+    <!-- Stopka -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../privacy-policy.html" class="footer-link">Polityka Prywatności</a>
+                <a href="index.html" class="footer-link active">Blog</a>
+                <a href="../en/index.html" class="footer-link">English</a>
+            </div>
+            <p class="footer-copyright">
+                © 2024 VictoryMind.ai. Wszystkie prawa zastrzeżone.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

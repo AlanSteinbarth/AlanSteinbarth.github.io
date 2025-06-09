@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VictoryMind.ai - Sztuczna Inteligencja dla Twojego Biznesu</title>
+    
+    <!-- SEO Meta Tags - Enhanced from ChatGPT -->
+    <meta name="description" content="VictoryMind.ai – wdrażamy rozwiązania AI, które usprawniają Twój biznes. Poznaj nasze usługi: konsulting, ML, analiza danych i automatyzacja.">
+    <meta name="keywords" content="AI, sztuczna inteligencja, machine learning, automatyzacja, analiza danych, konsultacje AI">
+    <meta name="author" content="Alan Steinbarth, VictoryMind.ai">
+    <link rel="canonical" href="https://victorymind.ai/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="VictoryMind.ai – Sztuczna Inteligencja dla Biznesu">
+    <meta property="og:description" content="Wdrażamy usługi AI: konsulting, ML, analiza danych. Skorzystaj z mocy sztucznej inteligencji!">
+    <meta property="og:image" content="https://victorymind.ai/images/og-image.webp">
+    <meta property="og:url" content="https://victorymind.ai/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VictoryMind.ai – Sztuczna Inteligencja dla Biznesu">
+    <meta name="twitter:description" content="Wdrażamy usługi AI: konsulting, ML, analiza danych. Skorzystaj z mocy sztucznej inteligencji!">
+    <meta name="twitter:image" content="https://victorymind.ai/images/twitter-image.webp">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    
+    <!-- Stylesheets -->
+    <link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
+    
+    <!-- Fonts - Apple system fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <!-- Google Analytics 4 - from ChatGPT -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H59TGC7RZH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-H59TGC7RZH');
+    </script>
+    
+    <!-- Structured Data - Enhanced from ChatGPT -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "VictoryMind.ai",
+        "url": "https://victorymind.ai",
+        "logo": "https://victorymind.ai/logo-new.webp",
+        "description": "Profesjonalne rozwiązania sztucznej inteligencji dla biznesu",
+        "founder": {
+            "@type": "Person",
+            "name": "Alan Steinbarth"
+        },
+        "contactPoint": [{
+            "@type": "ContactPoint",
+            "email": "contact@victorymind.ai",
+            "contactType": "customer service"
+        }],
+        "sameAs": [
+            "https://www.linkedin.com/company/victorymind",
+            "https://twitter.com/victorymind_ai"
+        ]
+    }
+    </script>
+    
+    <!-- Critical CSS inline - Performance optimization from ChatGPT -->
+    <style>
+        /* Minimalny CSS potrzebny do wyrenderowania treści "above the fold" */
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { margin:0; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background:#000; color:#fff; }
+        header, main, footer { display:block; }
+        
+        /* Critical navigation styles */
+        .nav { position:fixed; top:0; width:100%; z-index:1000; background:rgba(0,0,0,0.8); backdrop-filter:blur(20px); }
+        .nav-container { max-width:1200px; margin:0 auto; padding:16px 24px; display:flex; justify-content:space-between; align-items:center; }
+        .nav-logo { color:#007AFF; font-size:20px; font-weight:600; text-decoration:none; }
+        
+        /* Critical hero styles */
+        .hero { min-height:100vh; display:flex; align-items:center; justify-content:center; position:relative; background:linear-gradient(135deg, #000 0%, #1a1a1a 100%); }
+        .hero-content { text-align:center; max-width:800px; padding:0 24px; }
+        .hero-title { font-size:clamp(32px, 6vw, 64px); font-weight:700; margin-bottom:24px; background:linear-gradient(135deg, #007AFF 0%, #5856D6 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="mainNav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="Logo.png" alt="VictoryMind.ai Logo" class="nav-logo-img">
+                VictoryMind.ai
+            </a>
+            <div class="nav-links">
+                <a href="#services" class="nav-link">Usługi</a>
+                <a href="#process" class="nav-link">Proces</a>
+                <a href="#projects" class="nav-link">Projekty</a>
+                <a href="#contact" class="nav-link">Kontakt</a>
+                <a href="en/index.html" class="nav-link">EN</a>
+                <a href="blog/index.html" class="nav-link">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Video Background from ChatGPT concept -->
+        <video autoplay muted loop playsinline class="hero-bg" preload="auto" poster="Tlo_wersja_2.webp" disablepictureinpicture disableremoteplayback>
+            <source src="brain-ai-loop-1080p.mp4" type="video/mp4">
+            <source src="brain-ai-loop.webm" type="video/webm">
+            <source src="brain-ai-loop.mp4" type="video/mp4">
+        </video>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">Sztuczna Inteligencja dla Twojego Biznesu</h1>
+            <p class="hero-subtitle">
+                Przekształcamy Twoje pomysły w inteligentne rozwiązania. 
+                Machine learning, automatyzacja i analiza danych na najwyższym światowym poziomie.
+            </p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Bezpłatna konsultacja</a>
+                <a href="#services" class="btn btn-secondary">Poznaj usługi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2 class="section-title">Nasze Usługi</h2>
+            <p class="section-subtitle">
+                Kompleksowe rozwiązania AI dopasowane do potrzeb Twojego biznesu
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">Rozwój AI</h3>
+                <p class="service-description">
+                    Projektujemy i wdrażamy zaawansowane systemy sztucznej inteligencji 
+                    dostosowane do specyfiki Twojej branży.
+                </p>
+                <button class="btn btn-ghost" onclick="openServiceModal('ai-development')">
+                    Dowiedz się więcej
+                </button>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">Machine Learning</h3>
+                <p class="service-description">
+                    Budujemy modele uczenia maszynowego, które uczą się z Twoich danych 
+                    i podejmują inteligentne decyzje.
+                </p>
+                <button class="btn btn-ghost" onclick="openServiceModal('machine-learning')">
+                    Dowiedz się więcej
+                </button>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+                <h3 class="service-title">Automatyzacja</h3>
+                <p class="service-description">
+                    Automatyzujemy powtarzalne procesy biznesowe, oszczędzając czas 
+                    i zwiększając efektywność Twojego zespołu.
+                </p>
+                <button class="btn btn-ghost" onclick="openServiceModal('automation')">
+                    Dowiedz się więcej
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section" id="process">
+        <div class="section-header">
+            <h2 class="section-title">Jak Pracujemy?</h2>
+            <p class="section-subtitle">
+                Przejrzysty proces współpracy od konsultacji do wdrożenia
+            </p>
+        </div>
+        
+        <div class="process-timeline">
+            <div class="process-step fade-in">
+                <div class="process-number">01</div>
+                <h3 class="process-title">Analiza Potrzeb</h3>
+                <p class="process-description">
+                    Poznajemy Twój biznes, analizujemy wyzwania i identyfikujemy 
+                    możliwości zastosowania AI.
+                </p>
+            </div>
+
+            <div class="process-step fade-in">
+                <div class="process-number">02</div>
+                <h3 class="process-title">Projektowanie Rozwiązania</h3>
+                <p class="process-description">
+                    Tworzymy spersonalizowaną strategię AI dopasowaną do Twoich 
+                    celów biznesowych.
+                </p>
+            </div>
+
+            <div class="process-step fade-in">
+                <div class="process-number">03</div>
+                <h3 class="process-title">Rozwój i Testowanie</h3>
+                <p class="process-description">
+                    Budujemy, testujemy i optymalizujemy rozwiązanie przy 
+                    stałym kontakcie z Tobą.
+                </p>
+            </div>
+
+            <div class="process-step fade-in">
+                <div class="process-number">04</div>
+                <h3 class="process-title">Wdrożenie i Wsparcie</h3>
+                <p class="process-description">
+                    Wdrażamy rozwiązanie w Twoim środowisku i zapewniamy 
+                    pełne wsparcie techniczne.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="section-header">
+            <h2 class="section-title">Wybrane Projekty</h2>
+            <p class="section-subtitle">
+                Poznaj nasze realizacje w różnych branżach
+            </p>
+        </div>
+        
+        <div class="projects-grid">
+            <a href="https://chatgpt-clone-alan.netlify.app" class="project-card glass-card fade-in" target="_blank" rel="noopener">
+                <div class="project-image">
+                    <picture>
+                        <source type="image/webp" srcset="Tlo_wersja_2.webp">
+                        <img src="Logo2.webp" alt="ChatGPT Clone - AI application" loading="lazy" decoding="async" width="300" height="200">
+                    </picture>
+                    <div class="project-icon">💬</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">ChatGPT Clone</h3>
+                    <p class="project-description">Aplikacja konwersacyjna AI</p>
+                    <div class="project-tech">React, OpenAI API, Node.js</div>
+                </div>
+            </a>
+
+            <a href="https://ai-summarizer-alan.netlify.app" class="project-card glass-card fade-in" target="_blank" rel="noopener">
+                <div class="project-image">
+                    <picture>
+                        <source type="image/webp" srcset="Tlo_wersja_2.webp">
+                        <img src="Logo2.webp" alt="AI Summarizer - text processing tool" loading="lazy" decoding="async" width="300" height="200">
+                    </picture>
+                    <div class="project-icon">📄</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">AI Summarizer</h3>
+                    <p class="project-description">Inteligentne streszczanie tekstów</p>
+                    <div class="project-tech">React, RapidAPI, Redux</div>
+                </div>
+            </a>
+
+            <a href="https://dalle-clone-alan.netlify.app" class="project-card glass-card fade-in" target="_blank" rel="noopener">
+                <div class="project-image">
+                    <picture>
+                        <source type="image/webp" srcset="Tlo_wersja_2.webp">
+                        <img src="Logo2.webp" alt="DALL-E Clone - AI image generator" loading="lazy" decoding="async" width="300" height="200">
+                    </picture>
+                    <div class="project-icon">🎨</div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">DALL-E Clone</h3>
+                    <p class="project-description">Generator obrazów AI</p>
+                    <div class="project-tech">React, OpenAI, MongoDB</div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="about-container glass-card">
+            <div class="about-content">
+                <h2 class="section-title">O Mnie</h2>
+                <p class="about-text">
+                    Jestem <strong>Alan Steinbarth</strong>, inżynierem AI z pasją do tworzenia 
+                    rozwiązań, które rzeczywiście zmieniają biznes. Z wykształcenia informatyk, 
+                    z zamiłowania wizjoner technologiczny.
+                </p>
+                <p class="about-text">
+                    Specjalizuję się w machine learning, deep learning i automatyzacji procesów. 
+                    Moim celem jest demokratyzacja sztucznej inteligencji - sprawianie, by była 
+                    dostępna dla każdego biznesu, niezależnie od jego wielkości.
+                </p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projektów AI</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Lat Doświadczenia</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Zadowolonych Klientów</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="section-header">
+            <h2 class="section-title">Rozpocznijmy Współpracę</h2>
+            <p class="section-subtitle">
+                Skontaktuj się ze mną, aby omówić Twój projekt AI
+            </p>
+        </div>
+
+        <!-- Contact Info Cards -->
+        <div class="contact-info-cards">
+            <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-details">
+                    <h3>Email</h3>
+                    <a href="mailto:contact@victorymind.ai">contact@victorymind.ai</a>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">💼</div>
+                <div class="contact-details">
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/alansteinbarth" target="_blank">Alan Steinbarth</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-container">
+            <form class="contact-form" action="https://formspree.io/f/xwkgyyqg" method="POST">
+                <input type="hidden" name="_next" value="https://victorymind.ai?sent=1">
+                <input type="hidden" name="_subject" value="Nowe zapytanie z VictoryMind.ai">
+                
+                <div class="form-group">
+                    <label for="name" class="form-label">Imię i nazwisko *</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email *</label>
+                    <input type="email" id="email" name="email" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company" class="form-label">Firma</label>
+                    <input type="text" id="company" name="company" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="form-label">Wiadomość *</label>
+                    <textarea id="message" name="message" class="form-textarea" 
+                              placeholder="Opisz swój projekt lub zadaj pytanie..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    Wyślij wiadomość
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy-policy.html" class="footer-link">Polityka Prywatności</a>
+                <a href="blog/index.html" class="footer-link">Blog</a>
+                <a href="en/index.html" class="footer-link">English</a>
+            </div>
+            
+            <!-- Social Media Links -->
+            <div class="footer-social">
+                <p class="social-text">Udostępnij VictoryMind.ai:</p>
+                <div class="social-buttons">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://victorymind.ai/" 
+                       target="_blank" rel="noopener" class="social-btn facebook" title="Udostępnij na Facebooku">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/alan-steinbarth/" 
+                       target="_blank" rel="noopener" class="social-btn linkedin" title="LinkedIn - Alan Steinbarth">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=VictoryMind.ai - Sztuczna Inteligencja dla Twojego Biznesu&url=https://victorymind.ai/" 
+                       target="_blank" rel="noopener" class="social-btn twitter" title="Udostępnij na X (Twitter)">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@victorymindai" 
+                       target="_blank" rel="noopener" class="social-btn youtube" title="YouTube VictoryMind.ai">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                    <a href="https://github.com/alansteinbarth" 
+                       target="_blank" rel="noopener" class="social-btn github" title="GitHub - Alan Steinbarth">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@victorymindai" 
+                       target="_blank" rel="noopener" class="social-btn tiktok" title="TikTok VictoryMind.ai">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                        </svg>
+                    </a>
+                    <a href="https://discord.gg/victorymindai" 
+                       target="_blank" rel="noopener" class="social-btn discord" title="Discord VictoryMind.ai">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0188 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/victorymindai/" 
+                       target="_blank" rel="noopener" class="social-btn instagram" title="Instagram VictoryMind.ai">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                    <button class="social-btn native-share" onclick="shareNative()" title="Udostępnij przez system">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <p class="footer-copyright">
+                © 2024 VictoryMind.ai. Wszystkie prawa zastrzeżone.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Dziękuję za wiadomość!</h3>
+            <p>Otrzymałem Twoje zapytanie i odezwę się wkrótce.</p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">Zamknij</button>
+        </div>
+    </div>
+
+    <!-- Service Modals -->
+    <div id="serviceModal" class="modal hidden">
+        <div class="modal-content">
+            <div id="modalContent"></div>
+            <button class="btn btn-secondary" onclick="closeServiceModal()">Zamknij</button>
+        </div>
+    </div>
+
+    <!-- Scripts - deferred for performance -->
+    <script defer src="main.js"></script>
+</body>
+</html>
