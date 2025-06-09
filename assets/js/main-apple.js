@@ -539,6 +539,268 @@ document.addEventListener('DOMContentLoaded', function() {
         statNumbers.forEach(stat => observer.observe(stat));
     }
 
+    // ========== ENHANCED APPLE-STYLE SCROLL ANIMATIONS ==========
+    function initAdvancedScrollEffects() {
+        // Scroll indicator fade out
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        if (scrollIndicator) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const opacity = Math.max(0, 1 - (scrolled / 300));
+                scrollIndicator.style.opacity = opacity;
+            }, { passive: true });
+        }
+
+        // Enhanced parallax for multiple elements
+        const parallaxElements = document.querySelectorAll('.service-card, .project-card, .stat-card');
+        
+        const parallaxObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const rect = element.getBoundingClientRect();
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * -0.02;
+                    
+                    element.style.transform = `translateY(${rate}px)`;
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        parallaxElements.forEach(el => parallaxObserver.observe(el));
+
+        // Apple-style section entrance animations
+        const sections = document.querySelectorAll('.feature-section, .performance-section, .product-showcase');
+        
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('section-animate-in');
+                    
+                    // Stagger children animations
+                    const children = entry.target.querySelectorAll('.fade-in, .stat-card, .showcase-item');
+                    children.forEach((child, index) => {
+                        setTimeout(() => {
+                            child.classList.add('animate-in');
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        sections.forEach(section => sectionObserver.observe(section));
+    }
+
+    // ========== APPLE-STYLE SMOOTH SCROLL ==========
+    function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    }
+
+    // ========== APPLE-STYLE BUTTON INTERACTIONS ==========
+    function initButtonInteractions() {
+        const buttons = document.querySelectorAll('.btn');
+        
+        buttons.forEach(button => {
+            // Add ripple effect on click
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('div');
+                ripple.classList.add('button-ripple');
+                
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+                ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+            
+            // Enhanced hover effects
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.02)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    }
+
+    // ========== FINAL APPLE-STYLE ENHANCEMENTS ==========
+    function initFinalAppleEnhancements() {
+        // Apple-style preloader
+        const preloader = document.createElement('div');
+        preloader.id = 'apple-preloader';
+        preloader.innerHTML = `
+            <div class="loading-dots">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        `;
+        preloader.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-bg-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        `;
+        
+        document.body.appendChild(preloader);
+        
+        // Hide preloader when page is fully loaded
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => preloader.remove(), 500);
+            }, 800);
+        });
+
+        // Apple-style cursor following effect
+        let cursor = document.createElement('div');
+        cursor.classList.add('apple-cursor');
+        cursor.style.cssText = `
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 122, 255, 0.3);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.1s ease;
+            opacity: 0;
+            transform: scale(0);
+        `;
+        document.body.appendChild(cursor);
+
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.1;
+            cursorY += (mouseY - cursorY) * 0.1;
+            
+            cursor.style.left = cursorX - 10 + 'px';
+            cursor.style.top = cursorY - 10 + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+
+        // Show cursor on interactive elements
+        const interactiveElements = document.querySelectorAll('.btn, .service-card, .project-card, .nav-link, .showcase-tab');
+        
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.opacity = '1';
+                cursor.style.transform = 'scale(1.5)';
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                cursor.style.opacity = '0';
+                cursor.style.transform = 'scale(0)';
+            });
+        });
+
+        animateCursor();
+
+        // Apple-style momentum scrolling for touch devices
+        let isScrolling = false;
+        let scrollTimer = null;
+
+        window.addEventListener('scroll', () => {
+            isScrolling = true;
+            clearTimeout(scrollTimer);
+            
+            scrollTimer = setTimeout(() => {
+                isScrolling = false;
+            }, 150);
+        }, { passive: true });
+
+        // Enhanced keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+            
+            if (e.key === 'Escape') {
+                // Close any open modals
+                document.querySelectorAll('.modal:not(.hidden)').forEach(modal => {
+                    modal.classList.add('hidden');
+                });
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Apple-style performance monitoring
+        if ('performance' in window && 'PerformanceObserver' in window) {
+            const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                    if (entry.entryType === 'largest-contentful-paint') {
+                        console.log('🍎 LCP:', entry.startTime);
+                    }
+                }
+            });
+            
+            try {
+                observer.observe({ entryTypes: ['largest-contentful-paint'] });
+            } catch (e) {
+                // Fallback for older browsers
+                console.log('🍎 Performance monitoring not supported');
+            }
+        }
+
+        // Apple-style battery and connection awareness
+        if ('navigator' in window) {
+            // Reduced animations for battery save mode
+            if ('getBattery' in navigator) {
+                navigator.getBattery().then(battery => {
+                    if (battery.charging === false && battery.level < 0.2) {
+                        document.documentElement.classList.add('power-save-mode');
+                    }
+                });
+            }
+            
+            // Reduced quality for slow connections
+            if ('connection' in navigator) {
+                const connection = navigator.connection;
+                if (connection && connection.effectiveType === 'slow-2g') {
+                    document.documentElement.classList.add('slow-connection');
+                }
+            }
+        }
+
+        console.log('🍎 Final Apple enhancements loaded!');
+    }
+
     // ========== INITIALIZE ALL EFFECTS ==========
     initScrollAnimations();
     initParallaxEffects();
@@ -550,6 +812,18 @@ document.addEventListener('DOMContentLoaded', function() {
     initShowcaseTabs();
     animateStats();
     optimizePerformance();
+    
+    // Initialize enhanced scroll effects
+    initAdvancedScrollEffects();
+    
+    // Initialize smooth scroll
+    initSmoothScroll();
+    
+    // Initialize button interactions
+    initButtonInteractions();
+    
+    // Initialize final enhancements
+    initFinalAppleEnhancements();
     
     console.log('🍎 Apple-style effects initialized!');
 });
@@ -589,6 +863,76 @@ styleSheet.textContent = `
     .project-card,
     .process-step {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Apple-style preloader */
+    #apple-preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--color-bg-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+    }
+    
+    .loading-dots {
+        display: flex;
+        gap: 8px;
+    }
+    
+    .loading-dots div {
+        width: 12px;
+        height: 12px;
+        background: var(--color-accent-blue);
+        border-radius: 50%;
+        animation: loading-dot 0.6s infinite alternate;
+    }
+    
+    @keyframes loading-dot {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-8px);
+            opacity: 0.7;
+        }
+    }
+    
+    /* Apple-style cursor */
+    .apple-cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: rgba(0, 122, 255, 0.3);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transition: all 0.1s ease;
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    /* Power save mode styles */
+    .power-save-mode .nav,
+    .power-save-mode .btn,
+    .power-save-mode .service-card,
+    .power-save-mode .project-card,
+    .power-save-mode .process-step {
+        transition: none !important;
+    }
+    
+    /* Slow connection styles */
+    .slow-connection .service-card,
+    .slow-connection .project-card,
+    .slow-connection .process-step {
+        opacity: 0.7;
+        filter: grayscale(0.5);
     }
 `;
 document.head.appendChild(styleSheet);
