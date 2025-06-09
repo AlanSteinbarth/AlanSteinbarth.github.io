@@ -89,7 +89,7 @@ body {
 .nav-container {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 12px 22px;
+  padding: 16px 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,7 +111,8 @@ body {
 }
 
 .nav-logo-img {
-  height: 40px;
+  height: 80px;
+  max-width: 200px;
   width: auto;
   object-fit: contain;
 }
