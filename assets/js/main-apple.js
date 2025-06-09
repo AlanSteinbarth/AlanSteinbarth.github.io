@@ -3,6 +3,39 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
+    // ========== APPLE-STYLE SUBTLE PARALLAX ==========
+    let ticking = false;
+    
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5; // Very subtle - Apple style
+        const heroVideo = document.querySelector('.hero-bg');
+        const heroContent = document.querySelector('.hero-content');
+        
+        if (heroVideo && scrolled < window.innerHeight) {
+            // Background video moves slower (creates depth)
+            heroVideo.style.transform = `translate(-50%, -50%) translateY(${rate}px)`;
+        }
+        
+        if (heroContent && scrolled < window.innerHeight) {
+            // Content moves at normal speed with slight offset
+            const contentRate = scrolled * -0.1;
+            heroContent.style.transform = `translateY(${contentRate}px)`;
+        }
+        
+        ticking = false;
+    }
+    
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+    
+    // Apple-style smooth parallax with performance optimization
+    window.addEventListener('scroll', requestTick, { passive: true });
+    
     // ========== APPLE-STYLE SCROLL ANIMATIONS ==========
     const observerOptions = {
         threshold: 0.15,
