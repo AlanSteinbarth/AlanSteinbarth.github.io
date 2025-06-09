@@ -89,7 +89,7 @@ body {
 .nav-container {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 24px 22px;
+  padding: 16px 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
