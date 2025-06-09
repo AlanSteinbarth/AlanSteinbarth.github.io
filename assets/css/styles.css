@@ -89,7 +89,7 @@ body {
 .nav-container {
   max-width: 1024px;
   margin: 0 auto;
-  padding: 16px 22px;
+  padding: 12px 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -111,8 +111,8 @@ body {
 }
 
 .nav-logo-img {
-  height: 150px;
-  max-width: 400px;
+  height: 180px;
+  max-width: 450px;
   width: auto;
   object-fit: contain;
 }
@@ -126,14 +126,17 @@ body {
 .nav-link {
   color: var(--color-text-secondary);
   text-decoration: none;
-  font-size: 0.875rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: 500;
   transition: var(--transition-fast);
   position: relative;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
 }
 
 .nav-link:hover {
   color: var(--color-text-primary);
+  background: rgba(245, 245, 247, 0.08);
 }
 
 .nav-link::after {
