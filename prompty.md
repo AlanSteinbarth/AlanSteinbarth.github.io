@@ -1,128 +1,80 @@
-# AI Prompts for VictoryMind.ai Website
+# Prompty AI do strony VictoryMind.ai
 
-Below you will find ready-to-use, highly detailed prompts for generating all visual and video assets for your website using AI tools. Each prompt is dedicated to a specific missing section or element on your site and is tailored to the MacBook Pro/Apple product style. For each prompt, you will find a recommended website or tool (preferably free or with a free trial) where you should paste the prompt.
-
-**How to use:**
-- Copy the prompt for the asset you want to generate.
-- Paste it into the recommended AI tool (see below for each type).
-- Download the generated file in the specified format and resolution.
-- Upload it to the indicated folder in your project.
-
----
-
-## 1. Hero Section – Video Background
-**Where to use:** Replace the current video background in the Hero section (`assets/videos/brain-ai-loop-1080p.mp4`)
-**Recommended tool:** [Pika Labs](https://pika.art) (free, requires account) or [RunwayML](https://app.runwayml.com/) (free trial)
-
-**Prompt (English):**
-```
-A seamless loop animation of a futuristic neural network, glowing data streams, and an abstract AI brain, in the style of a MacBook Pro commercial by Apple. Minimalist, clean, white and blue color palette, soft gradients, high-tech look, subtle reflections as if on a MacBook Pro screen. No text, no logos. 16:9 aspect ratio, 8 seconds, 1920x1080px, MP4 format, smooth loop, no sound.
-```
+**Wspólne wytyczne dla wszystkich assetów:**
+- Zawsze używaj białego lub przezroczystego tła, jeśli nie podano inaczej.
+- Unikaj tekstu, znaków wodnych i logotypów.
+- Styl: nowoczesny, minimalistyczny, inspirowany MacBook Pro/Apple.
+- Eksportuj w kilku rozdzielczościach: 1× (standard), 2× (Retina), 3× (4K), oraz wersja mobilna (np. 1280×720 px dla ilustracji/wideo).
+- Dla grafik: PNG (optymalizowany, PNG-8 jeśli możliwe), SVG (dla ikon), PSD/XCF (dla warstw), fallback GIF/APNG.
+- Dla wideo: MP4 (H.264, bez przezroczystości), WebM (VP9 z alfa, dla przezroczystych teł), MOV (ProRes 4444, jeśli możliwe), enable two-pass encoding.
+- Nazewnictwo plików: [nazwa-assetu]-[wariant]-[@2x|@3x|mobile].[format] (np. hero-loop-01@2x.webm).
+- Dla SVG: dodaj descriptive <title> i metadane, eksportuj także jako React TSX jeśli możliwe.
+- Dla każdego assetu podaj przykładowy alt text (np. “AI coloring-book cover: minimalistyczny MacBook z czarno-białą ilustracją”).
+- Podaj seed values w metadanych pliku dla powtarzalności wariantów.
 
 ---
 
-## 2. Project Card – Kolorowanki (Coloring App)
-**Where to use:** Project card for Kolorowanki (`assets/images/cover-kolorowanki.png`)
-**Recommended tool:** [Microsoft Designer (Bing Image Creator)](https://designer.microsoft.com/image-creator) (free), [Leonardo.Ai](https://leonardo.ai/) (free trial)
-
-**Prompt (English):**
-```
-A professional, minimalistic cover illustration for an AI-powered coloring book generator app, in the style of a MacBook Pro product page. White background, subtle shadows, a MacBook Pro displaying a black-and-white line art drawing on the screen, PDF and AI icons, modern flat style, soft gradients, metallic accents, no text, no people. 16:9, 1920x1080px, PNG, transparent background.
-```
-
-**Technologies used:** Python, Streamlit, OpenAI API, FPDF
+## 1. Tło wideo do sekcji Hero
+**Do czego:** Zastąpienie obecnego tła wideo w sekcji Hero (`assets/videos/brain-ai-loop-1080p.mp4`)
+**Gdzie wkleić prompt:** Pika Labs lub RunwayML
+**Prompt do AI:**
+"For a modern website hero section, generate a seamless loop animation of a futuristic neural network with glowing data streams and an abstract AI brain, in the style of a MacBook Pro commercial. Clean white and blue palette, soft gradients, subtle reflections on a MacBook Pro surface. No text, no logos. 16:9 aspect ratio, 1920×1080 px, 30 fps, 8 seconds, average bitrate ~5 Mbps. Export as MP4 (H.264, no alpha), WebM (VP9 with alpha), and MOV (ProRes 4444 with alpha). Enable two-pass encoding. Provide at least 3 variations (different seed values, include seeds in metadata). Export also 2× (3840×2160 px), 3× (5760×3240 px), and mobile (1280×720 px) versions. File naming: hero-loop-01@2x.webm etc. Example alt text: 'Looped animation of a neural network and AI brain in Apple style.' Specify the target folder: assets/videos/."
 
 ---
 
-## 3. Project Card – Bot Broker2
-**Where to use:** Project card for Bot Broker2 (`assets/images/cover-bot-broker.png`)
-**Recommended tool:** [Microsoft Designer (Bing Image Creator)](https://designer.microsoft.com/image-creator) (free), [Leonardo.Ai](https://leonardo.ai/) (free trial)
 
-**Prompt (English):**
-```
-A professional, minimalistic cover illustration for an AI trading bot project, in the style of a MacBook Pro product page. White background, a MacBook Pro displaying a trading dashboard with charts and AI signals, subtle blue and green highlights, metallic look, soft gradients, no text, no people. 16:9, 1920x1080px, PNG, transparent background.
-```
 
 ---
 
-## 4. Service Icon – AI Development
-**Where to use:** Service card for AI Development (`assets/images/icon-ai-development.png` or SVG)
-**Recommended tool:** [SVG Repo AI](https://www.svgrepo.com/ai/) (free SVG), [Microsoft Designer (Bing Image Creator)](https://designer.microsoft.com/image-creator) (free)
-
-**Prompt (English):**
-```
-A professional, vector-style icon representing AI development, in the style of MacBook Pro system icons by Apple. Minimalist, metallic look, soft gradients, subtle reflections, no text, no background, transparent PNG, 512x512px.
-```
 
 ---
 
-## 5. Service Icon – Machine Learning
-**Where to use:** Service card for Machine Learning (`assets/images/icon-machine-learning.png` or SVG)
-**Recommended tool:** [SVG Repo AI](https://www.svgrepo.com/ai/) (free SVG), [Microsoft Designer (Bing Image Creator)](https://designer.microsoft.com/image-creator) (free)
-
-**Prompt (English):**
-```
-A professional, vector-style icon representing machine learning, in the style of MacBook Pro system icons by Apple. Minimalist, metallic look, neural network motif, soft gradients, no text, no background, transparent PNG, 512x512px.
-```
+## 4. Ikona usługi – AI Development
+**Do czego:** Ikona do karty usługi AI Development (`assets/images/icon-ai-development.png` lub SVG)
+**Gdzie wkleić prompt:** SVG Repo AI lub Microsoft Designer (Bing Image Creator)
+**Prompt do AI:**
+"Generate a 512×512 px SVG (72 DPI) minimalist vector icon for AI Development in Apple system style. Use a logic block layout and a microchip motif, consistent stroke width (2 pt), no fills heavier than 30% opacity. Export also as optimized PNG-8, fallback GIF, and React TSX component. Provide 2-3 variations (include seed values). File naming: icon-ai-development-v2.svg. Example alt text: 'Apple-style icon: microchip and logic blocks.' Specify the target folder: assets/images/."
 
 ---
 
-## 6. Service Icon – Automation
-**Where to use:** Service card for Automation (`assets/images/icon-automation.png` or SVG)
-**Recommended tool:** [SVG Repo AI](https://www.svgrepo.com/ai/) (free SVG), [Microsoft Designer (Bing Image Creator)](https://designer.microsoft.com/image-creator) (free)
-
-**Prompt (English):**
-```
-A professional, vector-style icon representing business process automation, in the style of MacBook Pro system icons by Apple. Minimalist, metallic look, gear and AI circuit motif, soft gradients, no text, no background, transparent PNG, 512x512px.
-```
+## 5. Ikona usługi – Machine Learning
+**Do czego:** Ikona do karty usługi Machine Learning (`assets/images/icon-machine-learning.png` lub SVG)
+**Gdzie wkleić prompt:** SVG Repo AI lub Microsoft Designer (Bing Image Creator)
+**Prompt do AI:**
+"Generate a 512×512 px SVG (72 DPI) minimalist vector icon for Machine Learning in Apple system style. Use a neural network diagram and a chart symbol, consistent stroke width (2 pt), no fills heavier than 30% opacity. Export also as optimized PNG-8, fallback GIF, and React TSX component. Provide 2-3 variations (include seed values). File naming: icon-machine-learning-v2.svg. Example alt text: 'Apple-style icon: neural network and chart.' Specify the target folder: assets/images/."
 
 ---
 
-## 7. About Me – AI Portrait
-**Where to use:** About section (`assets/images/profile-ai.png`)
-**Recommended tool:** [Leonardo.Ai](https://leonardo.ai/) (free trial), [Microsoft Designer (Bing Image Creator)](https://designer.microsoft.com/image-creator) (free)
-
-**Prompt (English):**
-```
-A professional AI-generated portrait of a young male data scientist, business-casual, neutral expression, soft lighting, white background, in the style of a MacBook Pro keynote speaker photo by Apple. 1:1 aspect ratio, 1024x1024px, PNG, transparent background.
-```
+## 6. Ikona usługi – Automation
+**Do czego:** Ikona do karty usługi Automation (`assets/images/icon-automation.png` lub SVG)
+**Gdzie wkleić prompt:** SVG Repo AI lub Microsoft Designer (Bing Image Creator)
+**Prompt do AI:**
+"Generate a 512×512 px SVG (72 DPI) minimalist vector icon for Automation in Apple system style. Use a gear and a data flow path motif, consistent stroke width (2 pt), no fills heavier than 30% opacity. Export also as optimized PNG-8, fallback GIF, and React TSX component. Provide 2-3 variations (include seed values). File naming: icon-automation-v2.svg. Example alt text: 'Apple-style icon: gear and data flow.' Specify the target folder: assets/images/."
 
 ---
 
-## 8. Blog/Feature Illustration – AI in Business
-**Where to use:** Blog post covers, feature sections (`assets/images/`)
-**Recommended tool:** [Microsoft Designer (Bing Image Creator)](https://designer.microsoft.com/image-creator) (free), [Leonardo.Ai](https://leonardo.ai/) (free trial)
-
-**Prompt (English):**
-```
-A modern, flat illustration showing artificial intelligence transforming a business environment, in the style of a MacBook Pro product page. Futuristic office, digital data, glowing charts, Apple-style minimalism, white and blue palette, soft gradients, no text, 16:9, 1920x1080px, PNG.
-```
+## 7. Portret AI do sekcji O mnie
+**Do czego:** Zdjęcie profilowe do sekcji O mnie (`assets/images/profile-ai.png`)
+**Gdzie wkleić prompt:** Leonardo.Ai lub Microsoft Designer (Bing Image Creator)
+**Prompt do AI:**
+"Generate a 1:1 portrait of a 30-year-old male data scientist of European descent, business-casual, neutral expression, soft lighting with slight bokeh, white background. Apple keynote style, 1024×1024 px, transparent PNG, high-poly detail. Export also 2×, 3×, and mobile versions. Provide 2-3 variations (include seed values). File naming: profile-ai-01@2x.png. Example alt text: 'AI-generated portrait: young male data scientist, Apple keynote style.' Specify the target folder: assets/images/."
 
 ---
 
-## 9. Feature Animation – Data Flow
-**Where to use:** Interactive/feature sections (`assets/videos/`)
-**Recommended tool:** [Pika Labs](https://pika.art) (free, requires account), [RunwayML](https://app.runwayml.com/) (free trial)
-
-**Prompt (English):**
-```
-A short, seamless loop animation of data flowing through a neural network, nodes lighting up, in a clean, MacBook Pro-inspired style by Apple. 16:9, 1920x1080px, 6 seconds, MP4, transparent or white background, no sound.
-```
+## 8. Ilustracja do bloga/sekcji AI w biznesie
+**Do czego:** Ilustracja do wpisu blogowego lub sekcji o AI w biznesie (`assets/images/`)
+**Gdzie wkleić prompt:** Microsoft Designer (Bing Image Creator) lub Leonardo.Ai
+**Prompt do AI:**
+"For a business blog header, create a flat illustration: side-view futuristic office with 2 employees interacting with hologram charts and digital dashboards. Glowing data streams, minimal Apple style. White background, 16:9, 1920×1080 px. Export as SVG (with descriptive <title>), PNG (optimized), and fallback GIF. Provide 2-3 variations (include seed values). Export also 2×, 3×, and mobile versions. File naming: blog-ai-business-01@2x.svg. Example alt text: 'Futuristic office illustration: employees with hologram charts.' Specify the target folder: assets/images/."
 
 ---
 
-## 10. General Guidelines
-- Always use a white or transparent background unless otherwise specified.
-- Avoid text, watermarks, or logos in the generated images.
-- Use a modern, minimalist, MacBook Pro/Apple-inspired style for all assets.
-- Save images as PNG (for transparency) or JPG (for photos), videos as MP4.
-- For icons, prefer SVG or PNG with transparency.
-- For each asset, specify the target folder (e.g., `assets/images/`, `assets/videos/`).
+## 9. Animacja – przepływ danych
+**Do czego:** Animacja do sekcji interaktywnej/feature (`assets/videos/`)
+**Gdzie wkleić prompt:** Pika Labs lub RunwayML
+**Prompt do AI:**
+"Generate a 6-second seamless loop of data flowing through a neural-net graph: nodes pulsing sequentially, connections lighting up in waves. White background, 16:9, 1920×1080 px, 30 fps, smooth 1.5 s pulse cycle. Export as MP4 (H.264, no alpha), WebM (VP9 with alpha), and MOV (ProRes 4444 with alpha). Enable two-pass encoding. Provide 3 variants (different seeds, include seeds in metadata). Export also 2×, 3×, and mobile versions. File naming: dataflow-loop-01@2x.webm. Example alt text: 'Looped animation: data flowing through neural network graph.' Specify the target folder: assets/videos/."
 
 ---
 
-**Paste the generated files into the correct folders and update the HTML accordingly.**
-
----
-
-> For more inspiration, see: apple.com, macbook pro product pages, and Apple keynote visuals.
+**Wygenerowane pliki wklej do odpowiednich folderów i zaktualizuj HTML strony.**
